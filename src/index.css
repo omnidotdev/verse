@@ -19,11 +19,6 @@ body {
 }
 
 :root {
-  /* .react-flow__edge-path {
-    stroke: #000 !important;
-    stroke-width: 1 !important;
-  } */
-
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
@@ -140,8 +135,8 @@ body {
   }
 
   /* NB: important to render edges...try to get working with upstream bundle instead of this needed downstream */
-  /* .react-flow__edge-path {
+  .react-flow__edge-path {
     stroke: #000 !important;
     stroke-width: 1 !important;
-  } */
+  }
 }
