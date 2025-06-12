@@ -14,6 +14,7 @@
     "@tanstack/react-query-devtools": "^5.80.7",
     "@tanstack/react-router-devtools": "^1.121.5",
     "@tanstack/router-plugin": "^1.121.4",
+    "@types/bun": "latest",
     "@types/node": "^24.0.1",
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
@@ -25,7 +26,7 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^5.1.1",
-    "@omnidev/garden": "file:.knit/@omnidev/garden",
+    "@omnidotdev/garden": "file:.knit/@omnidotdev/garden",
     "@tailwindcss/vite": "^4.1.10",
     "@tanstack/react-form": "^1.12.2",
     "@tanstack/react-query": "^5.80.7",

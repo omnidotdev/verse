@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-import { Garden, type GardenTypes } from "@omnidev/garden";
+import { Garden, type GardenTypes } from "@omnidotdev/garden";
 // import {
 //   ReactFlow,
 //   Background,
