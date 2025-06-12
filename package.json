@@ -1,0 +1,48 @@
+{
+  "name": "@omnidotdev/verse",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --port 3000",
+    "build": "vite build",
+    "serve": "vite preview",
+    "start": "vite",
+    "check": "tsc --noEmit",
+    "pwa:generate": "pwa-assets-generator"
+  },
+  "devDependencies": {
+    "@tanstack/react-query-devtools": "^5.80.7",
+    "@tanstack/react-router-devtools": "^1.121.5",
+    "@tanstack/router-plugin": "^1.121.4",
+    "@types/node": "^24.0.1",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "@vite-pwa/assets-generator": "^1.0.0",
+    "@vitejs/plugin-react": "^4.5.2",
+    "postcss": "^8.5.5",
+    "tailwindcss": "^4.1.10",
+    "vite": "^6.3.5"
+  },
+  "dependencies": {
+    "@hookform/resolvers": "^5.1.1",
+    "@omnidev/garden": "file:.knit/@omnidev/garden",
+    "@tailwindcss/vite": "^4.1.10",
+    "@tanstack/react-form": "^1.12.2",
+    "@tanstack/react-query": "^5.80.7",
+    "@tanstack/react-router": "^1.121.2",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.514.0",
+    "next-themes": "^0.4.6",
+    "radix-ui": "^1.4.2",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "recharts": "^2.15.3",
+    "sonner": "^2.0.5",
+    "tailwind-merge": "^3.3.1",
+    "tw-animate-css": "^1.3.4",
+    "vite-plugin-pwa": "^1.0.0",
+    "zod": "^3.25.63",
+    "zustand": "^5.0.5"
+  }
+}
