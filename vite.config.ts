@@ -20,6 +20,9 @@ const viteConfig = defineConfig({
     tanstackRouter({}),
     react(),
     VitePWA({
+      workbox: {
+        maximumFileSizeToCacheInBytes: 5 * 1024 * 1024, // 5MB
+      },
       registerType: "autoUpdate",
       manifest: {
         name: "omniverse",
