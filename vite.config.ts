@@ -8,7 +8,7 @@ const viteConfig = defineConfig({
 	// TODO HTTPS
 	// https://github.com/vitejs/vite-plugin-basic-ssl?tab=readme-ov-file
 	server: {
-		// https: ...
+		allowedHosts: ["verse.omni.dev"],
 	},
 	plugins: [
 		tailwindcss(),
