@@ -1,40 +1,40 @@
 {
-	"name": "@omnidotdev/verse",
-	"type": "module",
-	"scripts": {
-		"dev": "vite dev --port 3000",
-		"build": "vite build",
-		"serve": "vite preview",
-		"start": "vite --host 0.0.0.0",
-		"check": "biome check --diagnostic-level=error src",
-		"format": "biome format --write src",
-		"lint": "biome lint --diagnostic-level=error src"
-	},
-	"devDependencies": {
-		"@biomejs/biome": "2.0.0",
-		"@tanstack/react-router-devtools": "^1.121.21",
-		"@tanstack/router-plugin": "^1.121.22",
-		"@types/bun": "^1.2.16",
-		"@types/node": "^24.0.3",
-		"@types/react": "^19.1.8",
-		"@types/react-dom": "^19.1.6",
-		"@vitejs/plugin-react": "^4.5.2",
-		"tailwindcss": "^4.1.10",
-		"vite": "^6.3.5",
-		"vite-tsconfig-paths": "^5.1.4"
-	},
-	"dependencies": {
-		"@omnidotdev/garden": "https://pkg.pr.new/omnidotdev/garden/@omnidotdev/garden@18@dea47de",
-		"@tailwindcss/vite": "^4.1.10",
-		"@tanstack/react-router": "^1.121.21",
-		"@tanstack/react-start": "^1.121.23",
-		"class-variance-authority": "^0.7.1",
-		"clsx": "^2.1.1",
-		"lucide-react": "^0.517.0",
-		"radix-ui": "^1.4.2",
-		"react": "^19.1.0",
-		"react-dom": "^19.1.0",
-		"tailwind-merge": "^3.3.1",
-		"tw-animate-css": "^1.3.4"
-	}
+  "name": "@omnidotdev/verse",
+  "type": "module",
+  "scripts": {
+    "dev": "vite dev --port 3000",
+    "build": "vite build",
+    "serve": "vite preview",
+    "start": "vite --host 0.0.0.0",
+    "check": "biome check --diagnostic-level=error src",
+    "format": "biome format --write src",
+    "lint": "biome lint --diagnostic-level=error src"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.0.0",
+    "@tanstack/react-router-devtools": "^1.121.21",
+    "@tanstack/router-plugin": "^1.121.22",
+    "@types/bun": "^1.2.16",
+    "@types/node": "^24.0.3",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "@vitejs/plugin-react": "^4.5.2",
+    "tailwindcss": "^4.1.10",
+    "vite": "^6.3.5",
+    "vite-tsconfig-paths": "^5.1.4"
+  },
+  "dependencies": {
+    "@omnidotdev/garden": "https://pkg.pr.new/omnidotdev/garden/@omnidotdev/garden@f7b8042",
+    "@tailwindcss/vite": "^4.1.10",
+    "@tanstack/react-router": "^1.121.21",
+    "@tanstack/react-start": "^1.121.23",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.517.0",
+    "radix-ui": "^1.4.2",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "tailwind-merge": "^3.3.1",
+    "tw-animate-css": "^1.3.4"
+  }
 }
