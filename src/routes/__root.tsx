@@ -1,4 +1,9 @@
-import { createRootRoute, Outlet } from "@tanstack/react-router";
+import {
+	createRootRoute,
+	HeadContent,
+	Outlet,
+	Scripts,
+} from "@tanstack/react-router";
 import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
 
 import Header from "@/components/header";
@@ -9,8 +14,12 @@ import "../index.css";
 export const Route = createRootRoute({
 	component: () => (
 		<>
+			{/* NB: Both `HeadContent` and `Scripts` are required to manage the head of a route. See: https://tanstack.com/router/v1/docs/framework/react/guide/document-head-management */}
+			<HeadContent />
+			<Scripts />
+
 			<ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-				<div className="grid grid-rows-[auto_1fr] h-svh">
+				<div className="grid h-svh grid-rows-[auto_1fr]">
 					<Header />
 
 					<Outlet />

@@ -22,3 +22,6 @@
 next-env.d.ts
 
 dev-dist
+
+# IDE
+.zed
