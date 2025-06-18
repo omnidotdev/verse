@@ -153,11 +153,13 @@ const omniEcosystemGarden: GardenTypes = {
 };
 
 const HomeComponent = () => (
-	<Garden
-		expandSubgardens
-		schema={omniEcosystemGarden}
-		controlOptions={{ position: "top-left" }}
-	/>
+	<div className="p-4">
+		<Garden
+			expandSubgardens
+			schema={omniEcosystemGarden}
+			controlOptions={{ position: "top-left" }}
+		/>
+	</div>
 );
 
 export const Route = createFileRoute("/")({

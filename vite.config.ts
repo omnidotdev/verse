@@ -1,8 +1,7 @@
-import path from "node:path";
 import tailwindcss from "@tailwindcss/vite";
-import tanstackRouter from "@tanstack/router-plugin/vite";
-import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
+import tsConfigPaths from 'vite-tsconfig-paths'
+import { tanstackStart } from '@tanstack/react-start/plugin/vite'
 
 const viteConfig = defineConfig({
 	// TODO HTTPS
@@ -12,17 +11,11 @@ const viteConfig = defineConfig({
 	},
 	plugins: [
 		tailwindcss(),
-		tanstackRouter({
-			target: "react",
-			autoCodeSplitting: true,
-		}),
-		react(),
+		tsConfigPaths({
+      projects: ['./tsconfig.json'],
+    }),
+		tanstackStart()
 	],
-	resolve: {
-		alias: {
-			"@": path.resolve(__dirname, "./src"),
-		},
-	},
 });
 
 export default viteConfig;
