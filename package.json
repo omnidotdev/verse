@@ -27,7 +27,6 @@
     "@omnidotdev/garden": "https://pkg.pr.new/omnidotdev/garden/@omnidotdev/garden@f7b8042",
     "@tailwindcss/vite": "^4.1.10",
     "@tanstack/react-router": "^1.121.21",
-    "@tanstack/react-start": "^1.121.23",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^0.517.0",

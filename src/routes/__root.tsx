@@ -14,16 +14,14 @@ import appCss from "../index.css?url";
 import type { ReactNode } from "react";
 
 const RootDocument = ({ children }: Readonly<{ children: ReactNode }>) => (
-	<html lang="en" suppressHydrationWarning>
-		<head>
-			<HeadContent />
-		</head>
-		<body>
+	<>
+		<HeadContent />
+		<div>
 			{children}
 			<TanStackRouterDevtools position="bottom-left" />
 			<Scripts />
-		</body>
-	</html>
+		</div>
+	</>
 );
 
 const RootComponent = () => (
