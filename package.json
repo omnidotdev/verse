@@ -22,7 +22,7 @@
 		"vite": "^6.3.5"
 	},
 	"dependencies": {
-		"@omnidotdev/garden": "https://pkg.pr.new/omnidotdev/garden/@omnidotdev/garden@18",
+		"@omnidotdev/garden": "https://pkg.pr.new/omnidotdev/garden/@omnidotdev/garden@18@dea47de",
 		"@tailwindcss/vite": "^4.1.10",
 		"@tanstack/react-router": "^1.121.2",
 		"class-variance-authority": "^0.7.1",

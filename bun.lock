@@ -4,7 +4,7 @@
     "": {
       "name": "@omnidotdev/verse",
       "dependencies": {
-        "@omnidotdev/garden": "https://pkg.pr.new/omnidotdev/garden/@omnidotdev/garden@18",
+        "@omnidotdev/garden": "https://pkg.pr.new/omnidotdev/garden/@omnidotdev/garden@18@dea47de",
         "@tailwindcss/vite": "^4.1.10",
         "@tanstack/react-router": "^1.121.2",
         "class-variance-authority": "^0.7.1",
@@ -161,7 +161,7 @@
 
     "@jridgewell/trace-mapping": ["@jridgewell/trace-mapping@0.3.25", "", { "dependencies": { "@jridgewell/resolve-uri": "^3.1.0", "@jridgewell/sourcemap-codec": "^1.4.14" } }, "sha512-vNk6aEwybGtawWmy/PzwnGDOjCkLWSD2wqvjGGAgOAwCGWySYXfYoxt00IJkTF+8Lb57DwOb3Aa0o9CApepiYQ=="],
 
-    "@omnidotdev/garden": ["@omnidotdev/garden@https://pkg.pr.new/omnidotdev/garden/@omnidotdev/garden@18", { "dependencies": { "@radix-ui/react-dialog": "^1.1.14", "@radix-ui/react-slot": "^1.2.3", "@xyflow/react": "^12.7.0", "class-variance-authority": "^0.7.1", "clsx": "^2.1.1", "elkjs": "^0.10.0", "lucide-react": "^0.516.0", "react": "^19.1.0", "tailwind-merge": "^3.3.1", "ts-pattern": "^5.7.1" } }],
+    "@omnidotdev/garden": ["@omnidotdev/garden@https://pkg.pr.new/omnidotdev/garden/@omnidotdev/garden@18@dea47de", { "dependencies": { "@radix-ui/react-dialog": "^1.1.14", "@radix-ui/react-slot": "^1.2.3", "@xyflow/react": "^12.7.0", "class-variance-authority": "^0.7.1", "clsx": "^2.1.1", "elkjs": "^0.10.0", "lucide-react": "^0.516.0", "react": "^19.1.0", "tailwind-merge": "^3.3.1", "ts-pattern": "^5.7.1" } }],
 
     "@radix-ui/number": ["@radix-ui/number@1.1.1", "", {}, "sha512-MkKCwxlXTgz6CFoJx3pCwn07GKp36+aZyu/u2Ln2VrA5DcdyCZkASEDBTd8x5whTQQL5CiYf4prXKLcgQdv29g=="],
 
