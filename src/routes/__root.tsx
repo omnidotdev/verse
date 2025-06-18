@@ -9,35 +9,27 @@ import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
 import Header from "@/components/header";
 import { NotFound } from "@/components/not-found";
 import { ThemeProvider } from "@/components/theme-provider";
-import appCss from "../index.css?url";
 
-import type { ReactNode } from "react";
-
-const RootDocument = ({ children }: Readonly<{ children: ReactNode }>) => (
-	<>
-		<HeadContent />
-		<div>
-			{children}
-			<TanStackRouterDevtools position="bottom-left" />
-			<Scripts />
-		</div>
-	</>
-);
-
-const RootComponent = () => (
-	<RootDocument>
-		<ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-			<div className="grid h-svh grid-rows-[auto_1fr]">
-				<Header />
-
-				<Outlet />
-			</div>
-		</ThemeProvider>
-	</RootDocument>
-);
+import "../index.css";
 
 export const Route = createRootRoute({
-	component: RootComponent,
+	component: () => (
+		<>
+			{/* NB: Both `HeadContent` and `Scripts` are required to manage the head of a route. See: https://tanstack.com/router/v1/docs/framework/react/guide/document-head-management */}
+			<HeadContent />
+
+			<ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+				<div className="grid h-svh grid-rows-[auto_1fr]">
+					<Header />
+
+					<Outlet />
+				</div>
+			</ThemeProvider>
+
+			<Scripts />
+			<TanStackRouterDevtools position="bottom-left" />
+		</>
+	),
 	notFoundComponent: () => <NotFound />,
 	head: () => ({
 		meta: [
@@ -50,7 +42,6 @@ export const Route = createRootRoute({
 			},
 		],
 		links: [
-			{ rel: "stylesheet", href: appCss },
 			{
 				rel: "icon",
 				href: "/favicon.ico",
