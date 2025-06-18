@@ -1,30 +1,33 @@
-import {
-	createRootRouteWithContext,
-	HeadContent,
-	Outlet,
-	useRouterState,
-} from "@tanstack/react-router";
+import { createRootRoute, Outlet } from "@tanstack/react-router";
 import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
 
 import Header from "@/components/header";
-import Loader from "@/components/loader";
-import { ThemeProvider } from "@/components/theme-provider";
-import { Toaster } from "@/components/ui/sonner";
+import ThemeProvider from "@/components/theme-provider";
 
 import "../index.css";
 
-export type RouterAppContext = {};
+export const Route = createRootRoute({
+	component: () => (
+		<>
+			<ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+				<div className="grid grid-rows-[auto_1fr] h-svh">
+					<Header />
 
-export const Route = createRootRouteWithContext<RouterAppContext>()({
-	component: RootComponent,
+					<Outlet />
+				</div>
+			</ThemeProvider>
+
+			<TanStackRouterDevtools position="bottom-left" />
+		</>
+	),
 	head: () => ({
 		meta: [
 			{
-				title: "My App",
+				title: "Omniverse",
 			},
 			{
 				name: "description",
-				content: "My App is a web application",
+				content: "Full view of the Omni Ecosystem. Powered by Garden.",
 			},
 		],
 		links: [
@@ -35,26 +38,3 @@ export const Route = createRootRouteWithContext<RouterAppContext>()({
 		],
 	}),
 });
-
-function RootComponent() {
-	const isFetching = useRouterState({
-		select: (s) => s.isLoading,
-	});
-
-	return (
-		<>
-			<HeadContent />
-			<ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-				<div className="grid grid-rows-[auto_1fr] h-svh">
-					<Header />
-
-					{isFetching ? <Loader /> : <Outlet />}
-				</div>
-
-				<Toaster richColors />
-			</ThemeProvider>
-
-			<TanStackRouterDevtools position="bottom-left" />
-		</>
-	);
-}
