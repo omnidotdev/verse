@@ -24,7 +24,7 @@
     "vite-tsconfig-paths": "^5.1.4"
   },
   "dependencies": {
-    "@omnidotdev/garden": "https://pkg.pr.new/omnidotdev/garden/@omnidotdev/garden@f7b8042",
+    "@omnidotdev/garden": "^0.1.0",
     "@tailwindcss/vite": "^4.1.10",
     "@tanstack/react-router": "^1.121.21",
     "class-variance-authority": "^0.7.1",
