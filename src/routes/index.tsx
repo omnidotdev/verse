@@ -4,7 +4,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import type { GardenSchema } from "@omnidotdev/garden";
 
 const omniEcosystemGarden: GardenSchema = {
-  name: "Omni Ecosystem",
+  name: "Omniverse",
   description: "Complete Omni product and tooling ecosystem",
   icon: "🌱",
   version: "2.0.0",
@@ -60,7 +60,7 @@ const omniEcosystemGarden: GardenSchema = {
       ],
       supergardens: [
         {
-          name: "Omni Ecosystem",
+          name: "Omniverse",
           url: "https://verse.omni.dev",
           description: "Complete Omni product and tooling ecosystem",
           version: "2.0.0",
@@ -97,7 +97,7 @@ const omniEcosystemGarden: GardenSchema = {
       ],
       supergardens: [
         {
-          name: "Omni Ecosystem",
+          name: "Omniverse",
           url: "https://verse.omni.dev",
           description: "Complete Omni product and tooling ecosystem",
           version: "2.0.0",
@@ -134,7 +134,7 @@ const omniEcosystemGarden: GardenSchema = {
       ],
       supergardens: [
         {
-          name: "Omni Ecosystem",
+          name: "Omniverse",
           url: "https://verse.omni.dev",
           description: "Complete Omni product and tooling ecosystem",
           version: "2.0.0",
