@@ -1,5 +1,6 @@
 {
   "name": "@omnidotdev/verse",
+  "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite dev",
@@ -30,7 +31,7 @@
   },
   "dependencies": {
     "@omnidotdev/garden": "^0.1.4",
-    "@omnidotdev/providers": "github:omnidotdev/providers#72baa55",
+    "@omnidotdev/providers": "github:omnidotdev/providers#97a4ace",
     "@tailwindcss/vite": "^4.2.1",
     "@tanstack/react-router": "^1.166.3",
     "class-variance-authority": "^0.7.1",
