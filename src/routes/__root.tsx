@@ -10,6 +10,7 @@ import Header from "@/components/header";
 import { NotFound } from "@/components/not-found";
 import { ThemeProvider } from "@/components/theme-provider";
 import { FLAGS, flags } from "@/lib/providers";
+import createMetaTags from "@/lib/util/createMetaTags";
 
 import "../index.css";
 
@@ -72,12 +73,13 @@ export const Route = createRootRouteWithContext<{
 	head: () => ({
 		meta: [
 			{
-				title: "Omniverse",
+				charSet: "utf-8",
 			},
 			{
-				name: "description",
-				content: "Full view of the Omni ecosystem, powered by Garden",
+				name: "viewport",
+				content: "width=device-width, initial-scale=1",
 			},
+			...createMetaTags(),
 		],
 		links: [
 			{
