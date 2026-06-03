@@ -31,7 +31,7 @@
   },
   "dependencies": {
     "@omnidotdev/garden": "^0.1.4",
-    "@omnidotdev/providers": "github:omnidotdev/providers#c24cfbc",
+    "@omnidotdev/providers": "github:omnidotdev/providers#ddc7829",
     "@tailwindcss/vite": "^4.2.1",
     "@tanstack/react-router": "^1.166.3",
     "class-variance-authority": "^0.7.1",
