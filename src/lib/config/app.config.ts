@@ -8,6 +8,7 @@ const app = {
 	socials: {
 		discord: "https://discord.gg/omnidotdev",
 		x: "https://x.com/omnidotdev",
+		threads: "https://www.threads.com/@omnidotdev",
 	},
 	organization: {
 		name: "Omni",
