@@ -51,6 +51,12 @@ export const omniGarden = {
           "homepage_url": "https://eden.omni.dev",
           "description": "A Rust-powered CLI tool designed for developer onboarding that verifies required dependencies and configurations are properly installed before development begins.",
           "logo": "🌿"
+        },
+        {
+          "name": "See Less",
+          "homepage_url": "https://seeless.omni.dev",
+          "description": "A high-performance visual content moderation engine written in Rust that screens images and video for harmful content, combining a deterministic known-bad hash gate with a self-hosted vision classifier.",
+          "logo": "🙈"
         }
       ]
     },
@@ -81,6 +87,24 @@ export const omniGarden = {
           "homepage_url": "https://persona.omni.dev",
           "description": "A portable digital identity specification for non-humans—AI assistants, brands, bots, mascots, and other non-human identities. Complements life.json (human identity) with non-human identity.",
           "logo": "🎭"
+        }
+      ]
+    },
+    {
+      "name": "SIGIL",
+      "description": "Omni's unified design system - A unified collection of design tokens, components, and utilities for building accessible, consistent, and beautiful user interfaces across the Omni product ecosystem.",
+      "icon": "✨",
+      "supergardens": [
+        {
+          "name": "Omniverse"
+        }
+      ],
+      "sprouts": [
+        {
+          "name": "Sigil",
+          "homepage_url": "https://sigil.omni.dev",
+          "description": "A unified collection of design tokens, components, and utilities for building accessible, consistent, and beautiful user interfaces across the Omni product ecosystem.",
+          "logo": "🖌️"
         }
       ]
     },
