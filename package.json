@@ -4,7 +4,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite dev",
-    "build": "vite build",
+    "build": "bun run src/scripts/generateGarden.ts && vite build",
+    "garden:generate": "bun run src/scripts/generateGarden.ts",
     "serve": "bun server.ts",
     "start": "bun server.ts",
     "check": "biome check --diagnostic-level=error src",
@@ -30,7 +31,7 @@
     "vite-tsconfig-paths": "^6.1.1"
   },
   "dependencies": {
-    "@omnidotdev/garden": "^0.1.4",
+    "@omnidotdev/garden": "github:omnidotdev/garden-canvas#38444ddb9b39c805e85bff4e59ff23365d2880cb",
     "@omnidotdev/providers": "github:omnidotdev/providers#7610f91",
     "@tailwindcss/vite": "^4.2.1",
     "@tanstack/react-router": "^1.166.3",
