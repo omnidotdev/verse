@@ -33,12 +33,6 @@ export const omniGarden = {
           "homepage_url": "https://backfeed.omni.dev",
           "description": "A user feedback reporting platform that aggregates user data for your products, services, and experiences, providing a centralized location to iterate on your projects with user-driven insights.",
           "logo": "📣"
-        },
-        {
-          "name": "Halo",
-          "homepage_url": "https://halo.omni.dev",
-          "description": "A zero-trust ecommerce platform that addresses the challenges of complex and rigid ecommerce infrastructure, supporting both fiat and cryptocurrency-native payments. FOSS Shopify for the modern world.",
-          "logo": "😇"
         }
       ]
     },
@@ -57,18 +51,6 @@ export const omniGarden = {
           "homepage_url": "https://eden.omni.dev",
           "description": "A Rust-powered CLI tool designed for developer onboarding that verifies required dependencies and configurations are properly installed before development begins.",
           "logo": "🌿"
-        },
-        {
-          "name": "Forage",
-          "homepage_url": "https://forage.omni.dev",
-          "description": "A Rust-powered CLI for foraging the web for LLM-ready content. Fetch llms.txt, crawl websites, and extract clean text for AI consumption.",
-          "logo": "🌾"
-        },
-        {
-          "name": "Arbor",
-          "homepage_url": "https://arbor.omni.dev",
-          "description": "A decentralized, graph-UI-based git provider that helps visualize and model code repositories, especially in multi-repo configurations. Powered by Weaver.",
-          "logo": "🌲"
         }
       ]
     },
