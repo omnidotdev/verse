@@ -6,7 +6,6 @@ import {
 } from "@tanstack/react-router";
 import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
 
-import Header from "@/components/header";
 import { NotFound } from "@/components/not-found";
 import { ThemeProvider } from "@/components/theme-provider";
 import { FLAGS, flags } from "@/lib/providers";
@@ -47,9 +46,7 @@ function RootComponent() {
 			<HeadContent />
 
 			<ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-				<div className="grid h-svh grid-rows-[auto_1fr]">
-					<Header />
-
+				<div className="h-svh w-svw overflow-hidden">
 					<Outlet />
 				</div>
 			</ThemeProvider>

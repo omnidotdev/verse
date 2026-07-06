@@ -27,8 +27,14 @@ type Product = {
 	icon?: string;
 	realm?: string | null;
 	description?: string;
+	tagline?: string;
 	websiteUrl?: string;
 	docsUrl?: string;
+	license?: string;
+	selfHostable?: boolean;
+	isPublic?: boolean;
+	/** ISO release date. Absent means the product has not launched yet. */
+	releaseDate?: string;
 };
 type Realm = {
 	slug: string;
@@ -52,30 +58,51 @@ type Catalog = {
 
 const catalog = (await Bun.file(catalogPath).json()) as Catalog;
 
-const productsById = new Map(catalog.products.map((p) => [p.id, p]));
+// Only launched products are shown. `releaseDate` is the catalog's launch
+// signal, so a product without one is still in flight and hidden until it
+// ships (its typed connections drop out with it).
+const launchedProducts = catalog.products.filter((p) => Boolean(p.releaseDate));
+
+const productsById = new Map(launchedProducts.map((p) => [p.id, p]));
 const asArray = (v: string | string[]): string[] =>
 	Array.isArray(v) ? v : [v];
+
+// Docs URLs in the catalog are paths on the central docs site (e.g.
+// `/core/runa`); absolute URLs pass through untouched.
+const DOCS_BASE = "https://docs.omni.dev";
+const resolveDocsUrl = (docsUrl?: string): string => {
+	if (!docsUrl) return "";
+	return /^https?:\/\//.test(docsUrl) ? docsUrl : `${DOCS_BASE}${docsUrl}`;
+};
 
 const sprout = (p: Product) => ({
 	name: p.name,
 	homepage_url: p.websiteUrl ?? "",
 	description: p.description ?? "",
 	logo: p.icon ?? "",
+	tagline: p.tagline ?? "",
+	license: p.license ?? "",
+	release_date: p.releaseDate ?? "",
+	self_hostable: p.selfHostable ?? false,
+	docs_url: resolveDocsUrl(p.docsUrl),
 });
 
-// realms -> subgardens (each carries its products as sprouts)
-const subgardens = catalog.realms.map((realm) => ({
-	name: realm.name,
-	description: realm.tagline
-		? `${realm.tagline} - ${realm.description ?? ""}`.trim()
-		: (realm.description ?? ""),
-	icon: realm.icon,
-	supergardens: [{ name: "Omniverse" }],
-	sprouts: catalog.products.filter((p) => p.realm === realm.slug).map(sprout),
-}));
+// realms -> subgardens (each carries its products as sprouts). Realms with no
+// launched products are dropped so the garden never shows an empty branch.
+const subgardens = catalog.realms
+	.map((realm) => ({
+		name: realm.name,
+		description: realm.tagline
+			? `${realm.tagline} - ${realm.description ?? ""}`.trim()
+			: (realm.description ?? ""),
+		icon: realm.icon,
+		supergardens: [{ name: "Omniverse" }],
+		sprouts: launchedProducts.filter((p) => p.realm === realm.slug).map(sprout),
+	}))
+	.filter((subgarden) => subgarden.sprouts.length > 0);
 
 // realm-less products (Orin, Launcher, ...) grouped so they aren't lost
-const orphanProducts = catalog.products.filter((p) => !p.realm);
+const orphanProducts = launchedProducts.filter((p) => !p.realm);
 if (orphanProducts.length) {
 	subgardens.push({
 		name: "META",
@@ -135,5 +162,5 @@ await Bun.write(outPath, file);
 
 // biome-ignore lint/suspicious/noConsole: build script output
 console.info(
-	`[garden] Wrote ${subgardens.length} realms, ${catalog.products.length} products, ${edges.length} edges`,
+	`[garden] Wrote ${subgardens.length} realms, ${launchedProducts.length} products, ${edges.length} edges`,
 );
