@@ -2,7 +2,6 @@ import "@omnidotdev/garden/3d";
 
 import { Garden } from "@omnidotdev/garden";
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
 
 import ThemeToggle from "@/components/theme-toggle";
 import { omniGarden } from "@/lib/garden/garden.generated";
@@ -15,8 +14,22 @@ const LAYOUTS = [
 
 type Layout = (typeof LAYOUTS)[number][0];
 
+const DEFAULT_LAYOUT: Layout = "tree";
+
+const isLayout = (value: unknown): value is Layout =>
+	LAYOUTS.some(([key]) => key === value);
+
 const HomeComponent = () => {
-	const [layout, setLayout] = useState<Layout>("tree");
+	const { view } = Route.useSearch();
+	const navigate = Route.useNavigate();
+
+	// Coerce defensively: an unknown `?view=` value falls back to the default.
+	const layout = isLayout(view) ? view : DEFAULT_LAYOUT;
+
+	// The active layout lives in the URL (`?view=3d`), so a view is directly
+	// linkable and shareable. The default (tree) is left off for a clean `/`.
+	const setLayout = (key: Layout) =>
+		navigate({ search: key === DEFAULT_LAYOUT ? {} : { view: key } });
 
 	return (
 		<div className="relative h-svh w-full">
@@ -60,5 +73,9 @@ const HomeComponent = () => {
 };
 
 export const Route = createFileRoute("/")({
+	validateSearch: (search: Record<string, unknown>): { view?: Layout } => {
+		const view = search.view;
+		return isLayout(view) && view !== DEFAULT_LAYOUT ? { view } : {};
+	},
 	component: HomeComponent,
 });
