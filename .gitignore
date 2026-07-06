@@ -19,6 +19,7 @@ certificates
 
 # tooling
 .claude
+.playwright-mcp
 
 # environment
 *.env*
