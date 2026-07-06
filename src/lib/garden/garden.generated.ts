@@ -26,13 +26,23 @@ export const omniGarden = {
           "name": "Runa",
           "homepage_url": "https://runa.omni.dev",
           "description": "A streamlined project management tool with agile workflows such as kanban.",
-          "logo": "🌙"
+          "logo": "🌙",
+          "tagline": "Lunar plans, stellar execution",
+          "license": "Apache-2.0",
+          "release_date": "2025-12-21",
+          "self_hostable": true,
+          "docs_url": "https://docs.omni.dev/core/runa"
         },
         {
           "name": "Backfeed",
           "homepage_url": "https://backfeed.omni.dev",
           "description": "A user feedback reporting platform that aggregates user data for your products, services, and experiences, providing a centralized location to iterate on your projects with user-driven insights.",
-          "logo": "📣"
+          "logo": "📣",
+          "tagline": "Streamlined user feedback",
+          "license": "Apache-2.0",
+          "release_date": "2025-05-06",
+          "self_hostable": true,
+          "docs_url": "https://docs.omni.dev/core/backfeed"
         }
       ]
     },
@@ -50,13 +60,12 @@ export const omniGarden = {
           "name": "Eden",
           "homepage_url": "https://eden.omni.dev",
           "description": "A Rust-powered CLI tool designed for developer onboarding that verifies required dependencies and configurations are properly installed before development begins.",
-          "logo": "🌿"
-        },
-        {
-          "name": "See Less",
-          "homepage_url": "https://seeless.omni.dev",
-          "description": "A high-performance visual content moderation engine written in Rust that screens images and video for harmful content, combining a deterministic known-bad hash gate with a self-hosted vision classifier.",
-          "logo": "🙈"
+          "logo": "🌿",
+          "tagline": "In the beginning, there were dependencies",
+          "license": "Apache-2.0",
+          "release_date": "2026-01-01",
+          "self_hostable": false,
+          "docs_url": "https://docs.omni.dev/armory/eden"
         }
       ]
     },
@@ -74,37 +83,34 @@ export const omniGarden = {
           "name": "Garden",
           "homepage_url": "https://garden.omni.dev",
           "description": "A specification, backed by JSON Schema, for modeling ecosystems of products, services, and any other relational collections. A React-based visualization component is provided that enables you to create interactive, hierarchical diagrams of your ecosystem.",
-          "logo": "🌱"
+          "logo": "🌱",
+          "tagline": "Ecosystem visualization and modeling",
+          "license": "Apache-2.0",
+          "release_date": "2025-06-20",
+          "self_hostable": false,
+          "docs_url": "https://docs.omni.dev/codex/garden"
         },
         {
           "name": "life.json",
           "homepage_url": "https://life.omni.dev",
           "description": "A portable digital identity specification that allows you to own and control your personal data across platforms and services.",
-          "logo": "🧬"
+          "logo": "🧬",
+          "tagline": "Portable digital identity specification",
+          "license": "Apache-2.0",
+          "release_date": "2026-02-06",
+          "self_hostable": false,
+          "docs_url": "https://docs.omni.dev/codex/life-json"
         },
         {
           "name": "persona.json",
           "homepage_url": "https://persona.omni.dev",
           "description": "A portable digital identity specification for non-humans—AI assistants, brands, bots, mascots, and other non-human identities. Complements life.json (human identity) with non-human identity.",
-          "logo": "🎭"
-        }
-      ]
-    },
-    {
-      "name": "SIGIL",
-      "description": "Omni's unified design system - A unified collection of design tokens, components, and utilities for building accessible, consistent, and beautiful user interfaces across the Omni product ecosystem.",
-      "icon": "✨",
-      "supergardens": [
-        {
-          "name": "Omniverse"
-        }
-      ],
-      "sprouts": [
-        {
-          "name": "Sigil",
-          "homepage_url": "https://sigil.omni.dev",
-          "description": "A unified collection of design tokens, components, and utilities for building accessible, consistent, and beautiful user interfaces across the Omni product ecosystem.",
-          "logo": "🖌️"
+          "logo": "🎭",
+          "tagline": "Portable non-human identity specification",
+          "license": "Apache-2.0",
+          "release_date": "2026-02-06",
+          "self_hostable": false,
+          "docs_url": "https://docs.omni.dev/codex/persona-json"
         }
       ]
     },
@@ -122,7 +128,12 @@ export const omniGarden = {
           "name": "RDK",
           "homepage_url": "",
           "description": "A React-first framework for building web-based XR experiences, from AR to VR, orchestrated through one unified API powered by Three.js and react-three-fiber.",
-          "logo": "⊗"
+          "logo": "⊗",
+          "tagline": "React-first XR development kit",
+          "license": "Apache-2.0",
+          "release_date": "2025-10-31",
+          "self_hostable": false,
+          "docs_url": "https://docs.omni.dev/reality/rdk"
         }
       ]
     }
