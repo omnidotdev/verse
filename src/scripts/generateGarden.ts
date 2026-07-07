@@ -1,25 +1,20 @@
-import { existsSync } from "node:fs";
 import { resolve } from "node:path";
 
 /**
  * Build the Omniverse garden the visualizer renders from the catalog SSOT.
  *
- * Reads `_meta/catalog.json` (emitted by omni-api `bun catalog:export`) and
- * maps it onto the garden schema: realms -> subgardens, products -> sprouts,
- * and the connection graph -> typed cross-sprout `edges`. Writes a committed
- * `src/lib/garden/garden.generated.ts`. Never hand-edit that file.
+ * Pulls the public catalog straight from omni-api's GraphQL (the catalog is
+ * DB-synced there and filtered to `is_public` products server-side), then maps
+ * it onto the garden schema: realms -> subgardens, products -> sprouts, and the
+ * connection graph -> typed cross-sprout `edges`. The result is cached to the
+ * committed `src/lib/garden/garden.generated.ts`; if omni-api is unreachable
+ * (offline, or a CI build without egress) the existing committed cache is kept.
+ * Never hand-edit that file.
  */
 
-const catalogPath = resolve(import.meta.dir, "../../../_meta/catalog.json");
+const GRAPHQL_URL =
+	process.env.OMNI_API_GRAPHQL_URL ?? "https://api.omni.dev/graphql";
 const outPath = resolve(import.meta.dir, "../lib/garden/garden.generated.ts");
-
-if (!existsSync(catalogPath)) {
-	// biome-ignore lint/suspicious/noConsole: build script output
-	console.warn(
-		`[garden] ${catalogPath} not found, keeping the committed garden.generated.ts`,
-	);
-	process.exit(0);
-}
 
 type Product = {
 	id: string;
@@ -32,7 +27,6 @@ type Product = {
 	docsUrl?: string;
 	license?: string;
 	selfHostable?: boolean;
-	isPublic?: boolean;
 	/** ISO release date. Absent means the product has not launched yet. */
 	releaseDate?: string;
 };
@@ -56,7 +50,119 @@ type Catalog = {
 	connections: Connection[];
 };
 
-const catalog = (await Bun.file(catalogPath).json()) as Catalog;
+// The public catalog surface. `products` is filtered to `is_public` by the
+// server, so only public entries (and links between them) come back.
+const CATALOG_QUERY = `{
+  realms(first: 100) { nodes { slug name icon tagline description } }
+  products(first: 200) {
+    nodes {
+      slug name icon description tagline websiteUrl docsUrl license
+      selfHostable releaseDate realm { slug }
+    }
+  }
+  productLinks(first: 1000) {
+    nodes {
+      sourceProduct { slug }
+      targetProduct { slug }
+      description status
+      productLinkRelations { nodes { relationType { slug } } }
+    }
+  }
+}`;
+
+type Nodes<T> = { nodes: T[] };
+type GqlResponse = {
+	errors?: unknown;
+	data?: {
+		realms: Nodes<Realm>;
+		products: Nodes<{
+			slug: string;
+			name: string;
+			icon?: string | null;
+			description?: string | null;
+			tagline?: string | null;
+			websiteUrl?: string | null;
+			docsUrl?: string | null;
+			license?: string | null;
+			selfHostable?: boolean | null;
+			releaseDate?: string | null;
+			realm?: { slug: string } | null;
+		}>;
+		productLinks: Nodes<{
+			sourceProduct?: { slug: string } | null;
+			targetProduct?: { slug: string } | null;
+			description?: string | null;
+			status?: string | null;
+			productLinkRelations: Nodes<{ relationType?: { slug: string } | null }>;
+		}>;
+	};
+};
+
+let payload: GqlResponse | undefined;
+try {
+	const res = await fetch(GRAPHQL_URL, {
+		method: "POST",
+		headers: { "content-type": "application/json" },
+		body: JSON.stringify({ query: CATALOG_QUERY }),
+	});
+	if (res.ok) {
+		payload = (await res.json()) as GqlResponse;
+	} else {
+		// biome-ignore lint/suspicious/noConsole: build script output
+		console.warn(`[garden] omni-api ${GRAPHQL_URL} returned ${res.status}`);
+	}
+} catch (error) {
+	// biome-ignore lint/suspicious/noConsole: build script output
+	console.warn(
+		`[garden] could not reach omni-api at ${GRAPHQL_URL} (${error})`,
+	);
+}
+
+// Fall back to the committed cache when omni-api is unreachable or empty, so a
+// build without egress (or during an outage) still ships the last good garden.
+const data = payload?.data;
+if (payload?.errors || !data) {
+	// biome-ignore lint/suspicious/noConsole: build script output
+	console.warn(
+		"[garden] no usable catalog from omni-api; keeping committed garden.generated.ts",
+	);
+	process.exit(0);
+}
+
+// Map the GraphQL shape onto the flat catalog the rest of this script expects.
+const catalog: Catalog = {
+	realms: data.realms.nodes.map((r) => ({
+		slug: r.slug,
+		name: r.name,
+		icon: r.icon ?? undefined,
+		tagline: r.tagline ?? undefined,
+		description: r.description ?? undefined,
+	})),
+	products: data.products.nodes.map((p) => ({
+		id: p.slug,
+		name: p.name,
+		icon: p.icon ?? undefined,
+		realm: p.realm?.slug ?? null,
+		description: p.description ?? undefined,
+		tagline: p.tagline ?? undefined,
+		websiteUrl: p.websiteUrl ?? undefined,
+		docsUrl: p.docsUrl ?? undefined,
+		license: p.license ?? undefined,
+		selfHostable: p.selfHostable ?? undefined,
+		releaseDate: p.releaseDate ?? undefined,
+	})),
+	connections: data.productLinks.nodes
+		.filter((l) => l.sourceProduct && l.targetProduct)
+		.map((l) => ({
+			source: (l.sourceProduct as { slug: string }).slug,
+			target: (l.targetProduct as { slug: string }).slug,
+			relations: l.productLinkRelations.nodes
+				.map((r) => r.relationType?.slug)
+				.filter((s): s is string => Boolean(s)),
+			description: l.description ?? undefined,
+			status: l.status ?? undefined,
+		})),
+};
 
 // Only launched products are shown. `releaseDate` is the catalog's launch
 // signal, so a product without one is still in flight and hidden until it
@@ -147,10 +253,10 @@ const garden = {
 };
 
 const file = `/**
- * Omniverse garden, generated from the catalog SSOT (\`_meta/catalog.json\`).
+ * Omniverse garden, generated from the catalog SSOT (omni-api GraphQL).
  *
  * AUTO-GENERATED by src/scripts/generateGarden.ts. Do not edit by hand.
- * Refresh with \`bun run src/scripts/generateGarden.ts\` from the metarepo.
+ * Refresh with \`bun run src/scripts/generateGarden.ts\`.
  */
 
 import type { GardenSchema } from "@omnidotdev/garden";
