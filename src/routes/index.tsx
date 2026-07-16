@@ -6,25 +6,38 @@ import { createFileRoute } from "@tanstack/react-router";
 import ThemeToggle from "@/components/theme-toggle";
 import { omniGarden } from "@/lib/garden/garden.generated";
 
+// `view` is the product's word for the layout, used in both the URL and the
+// buttons; `plugin` is the name Garden registers it under. The two differ for
+// the beehive, which Garden calls `hex` after the cell geometry.
 const LAYOUTS = [
-	["tree", "Tree"],
-	["hex", "Beehive"],
-	["3d", "3D"],
+	{ view: "tree", label: "Tree", plugin: "tree" },
+	{ view: "beehive", label: "Beehive", plugin: "hex" },
+	{ view: "3d", label: "3D", plugin: "3d" },
 ] as const;
 
-type Layout = (typeof LAYOUTS)[number][0];
+type Layout = (typeof LAYOUTS)[number]["view"];
 
 const DEFAULT_LAYOUT: Layout = "tree";
 
-const isLayout = (value: unknown): value is Layout =>
-	LAYOUTS.some(([key]) => key === value);
+// The beehive was `?view=hex` before the URL took the product's name for it;
+// links are meant to be shareable, so old ones still resolve.
+const LEGACY_VIEWS: Record<string, Layout> = { hex: "beehive" };
+
+// Coerce defensively: an unknown `?view=` value yields undefined for the caller
+// to fall back on.
+const toLayout = (value: unknown): Layout | undefined => {
+	if (typeof value !== "string") return undefined;
+	const view = LEGACY_VIEWS[value] ?? value;
+	return LAYOUTS.find((layout) => layout.view === view)?.view;
+};
 
 const HomeComponent = () => {
 	const { view } = Route.useSearch();
 	const navigate = Route.useNavigate();
 
-	// Coerce defensively: an unknown `?view=` value falls back to the default.
-	const layout = isLayout(view) ? view : DEFAULT_LAYOUT;
+	const layout = toLayout(view) ?? DEFAULT_LAYOUT;
+	const { plugin } =
+		LAYOUTS.find((entry) => entry.view === layout) ?? LAYOUTS[0];
 
 	// The active layout lives in the URL (`?view=3d`), so a view is directly
 	// linkable and shareable. The default (tree) is left off for a clean `/`.
@@ -38,7 +51,7 @@ const HomeComponent = () => {
 			    garden's own top-corner panels; on wider screens it's top-center. */}
 			<div className="absolute bottom-16 left-1/2 z-10 flex max-w-[calc(100vw-1rem)] -translate-x-1/2 items-center gap-2 sm:top-3 sm:bottom-auto">
 				<div className="flex gap-1 rounded-full border border-border bg-background/80 p-1 shadow-sm backdrop-blur-sm">
-					{LAYOUTS.map(([key, label]) => (
+					{LAYOUTS.map(({ view: key, label }) => (
 						<button
 							type="button"
 							key={key}
@@ -61,7 +74,7 @@ const HomeComponent = () => {
 
 			<Garden
 				key={layout}
-				layout={layout}
+				layout={plugin}
 				expandSubgardens
 				showRelations
 				showMinimap={false}
@@ -74,8 +87,8 @@ const HomeComponent = () => {
 
 export const Route = createFileRoute("/")({
 	validateSearch: (search: Record<string, unknown>): { view?: Layout } => {
-		const view = search.view;
-		return isLayout(view) && view !== DEFAULT_LAYOUT ? { view } : {};
+		const view = toLayout(search.view);
+		return view && view !== DEFAULT_LAYOUT ? { view } : {};
 	},
 	component: HomeComponent,
 });
