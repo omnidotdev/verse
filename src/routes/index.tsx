@@ -19,17 +19,10 @@ type Layout = (typeof LAYOUTS)[number]["view"];
 
 const DEFAULT_LAYOUT: Layout = "tree";
 
-// The beehive was `?view=hex` before the URL took the product's name for it;
-// links are meant to be shareable, so old ones still resolve.
-const LEGACY_VIEWS: Record<string, Layout> = { hex: "beehive" };
-
 // Coerce defensively: an unknown `?view=` value yields undefined for the caller
 // to fall back on.
-const toLayout = (value: unknown): Layout | undefined => {
-	if (typeof value !== "string") return undefined;
-	const view = LEGACY_VIEWS[value] ?? value;
-	return LAYOUTS.find((layout) => layout.view === view)?.view;
-};
+const toLayout = (value: unknown): Layout | undefined =>
+	LAYOUTS.find((layout) => layout.view === value)?.view;
 
 const HomeComponent = () => {
 	const { view } = Route.useSearch();
