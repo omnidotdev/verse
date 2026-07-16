@@ -29,6 +29,11 @@ type Product = {
 	selfHostable?: boolean;
 	/** ISO release date. Absent means the product has not launched yet. */
 	releaseDate?: string;
+	/**
+	 * Lifecycle status from the catalog. "coming_soon" publicly teases a product
+	 * before it ships; anything else is treated as a normal product.
+	 */
+	status?: string;
 };
 type Realm = {
 	slug: string;
@@ -57,7 +62,7 @@ const CATALOG_QUERY = `{
   products(first: 200) {
     nodes {
       slug name icon description tagline websiteUrl docsUrl license
-      selfHostable releaseDate realm { slug }
+      selfHostable releaseDate status realm { slug }
     }
   }
   productLinks(first: 1000) {
@@ -86,6 +91,7 @@ type GqlResponse = {
 			license?: string | null;
 			selfHostable?: boolean | null;
 			releaseDate?: string | null;
+			status?: string | null;
 			realm?: { slug: string } | null;
 		}>;
 		productLinks: Nodes<{
@@ -150,6 +156,7 @@ const catalog: Catalog = {
 		license: p.license ?? undefined,
 		selfHostable: p.selfHostable ?? undefined,
 		releaseDate: p.releaseDate ?? undefined,
+		status: p.status ?? undefined,
 	})),
 	connections: data.productLinks.nodes
 		.filter((l) => l.sourceProduct && l.targetProduct)
@@ -164,12 +171,17 @@ const catalog: Catalog = {
 		})),
 };
 
-// Only launched products are shown. `releaseDate` is the catalog's launch
-// signal, so a product without one is still in flight and hidden until it
-// ships (its typed connections drop out with it).
-const launchedProducts = catalog.products.filter((p) => Boolean(p.releaseDate));
+// Launched products render normally; products the catalog explicitly marks
+// `coming_soon` are teased alongside them. `releaseDate` is the catalog's launch
+// signal, so any other product without one is still in flight and stays hidden
+// until it ships (its typed connections drop out with it).
+const COMING_SOON_STATUS = "coming_soon";
+const isComingSoon = (p: Product): boolean => p.status === COMING_SOON_STATUS;
+const visibleProducts = catalog.products.filter(
+	(p) => Boolean(p.releaseDate) || isComingSoon(p),
+);
 
-const productsById = new Map(launchedProducts.map((p) => [p.id, p]));
+const productsById = new Map(visibleProducts.map((p) => [p.id, p]));
 const asArray = (v: string | string[]): string[] =>
 	Array.isArray(v) ? v : [v];
 
@@ -190,11 +202,12 @@ const sprout = (p: Product) => ({
 	license: p.license ?? "",
 	release_date: p.releaseDate ?? "",
 	self_hostable: p.selfHostable ?? false,
+	coming_soon: isComingSoon(p),
 	docs_url: resolveDocsUrl(p.docsUrl),
 });
 
 // realms -> subgardens (each carries its products as sprouts). Realms with no
-// launched products are dropped so the garden never shows an empty branch.
+// visible products are dropped so the garden never shows an empty branch.
 const subgardens = catalog.realms
 	.map((realm) => ({
 		name: realm.name,
@@ -203,12 +216,12 @@ const subgardens = catalog.realms
 			: (realm.description ?? ""),
 		icon: realm.icon,
 		supergardens: [{ name: "Omniverse" }],
-		sprouts: launchedProducts.filter((p) => p.realm === realm.slug).map(sprout),
+		sprouts: visibleProducts.filter((p) => p.realm === realm.slug).map(sprout),
 	}))
 	.filter((subgarden) => subgarden.sprouts.length > 0);
 
 // realm-less products (Orin, Launcher, ...) grouped so they aren't lost
-const orphanProducts = launchedProducts.filter((p) => !p.realm);
+const orphanProducts = visibleProducts.filter((p) => !p.realm);
 if (orphanProducts.length) {
 	subgardens.push({
 		name: "META",
@@ -268,5 +281,5 @@ await Bun.write(outPath, file);
 
 // biome-ignore lint/suspicious/noConsole: build script output
 console.info(
-	`[garden] Wrote ${subgardens.length} realms, ${launchedProducts.length} products, ${edges.length} edges`,
+	`[garden] Wrote ${subgardens.length} realms, ${visibleProducts.length} products (${visibleProducts.filter(isComingSoon).length} coming soon), ${edges.length} edges`,
 );

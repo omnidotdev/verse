@@ -31,6 +31,7 @@ export const omniGarden = {
           "license": "Apache-2.0",
           "release_date": "2025-06-20",
           "self_hostable": false,
+          "coming_soon": false,
           "docs_url": "https://docs.omni.dev/codex/garden"
         },
         {
@@ -42,6 +43,7 @@ export const omniGarden = {
           "license": "Apache-2.0",
           "release_date": "2026-02-06",
           "self_hostable": false,
+          "coming_soon": false,
           "docs_url": "https://docs.omni.dev/codex/life-json"
         },
         {
@@ -53,6 +55,7 @@ export const omniGarden = {
           "license": "Apache-2.0",
           "release_date": "2026-02-06",
           "self_hostable": false,
+          "coming_soon": false,
           "docs_url": "https://docs.omni.dev/codex/persona-json"
         }
       ]
@@ -76,6 +79,7 @@ export const omniGarden = {
           "license": "Apache-2.0",
           "release_date": "2025-10-31",
           "self_hostable": false,
+          "coming_soon": false,
           "docs_url": "https://docs.omni.dev/reality/rdk"
         }
       ]
@@ -99,6 +103,7 @@ export const omniGarden = {
           "license": "Apache-2.0",
           "release_date": "2026-01-01",
           "self_hostable": false,
+          "coming_soon": false,
           "docs_url": "https://docs.omni.dev/armory/eden"
         },
         {
@@ -110,6 +115,7 @@ export const omniGarden = {
           "license": "Apache-2.0",
           "release_date": "2026-02-27",
           "self_hostable": true,
+          "coming_soon": false,
           "docs_url": "https://docs.omni.dev/armory/omni-terminal"
         },
         {
@@ -121,6 +127,7 @@ export const omniGarden = {
           "license": "Apache-2.0",
           "release_date": "2026-01-27",
           "self_hostable": false,
+          "coming_soon": false,
           "docs_url": "https://docs.omni.dev/armory/omni-cli"
         }
       ]
@@ -144,6 +151,7 @@ export const omniGarden = {
           "license": "Apache-2.0",
           "release_date": "2026-07-06",
           "self_hostable": false,
+          "coming_soon": false,
           "docs_url": "https://docs.omni.dev/sigil/thornberry"
         },
         {
@@ -155,6 +163,7 @@ export const omniGarden = {
           "license": "Apache-2.0",
           "release_date": "2023-10-30",
           "self_hostable": false,
+          "coming_soon": false,
           "docs_url": "https://docs.omni.dev/sigil/zenpetal"
         }
       ]
@@ -178,6 +187,7 @@ export const omniGarden = {
           "license": "Apache-2.0",
           "release_date": "2025-12-21",
           "self_hostable": true,
+          "coming_soon": false,
           "docs_url": "https://docs.omni.dev/core/runa"
         },
         {
@@ -189,6 +199,7 @@ export const omniGarden = {
           "license": "Apache-2.0",
           "release_date": "2025-05-06",
           "self_hostable": true,
+          "coming_soon": false,
           "docs_url": "https://docs.omni.dev/core/backfeed"
         }
       ]
@@ -204,6 +215,54 @@ export const omniGarden = {
       ],
       "sprouts": [
         {
+          "name": "Fractal",
+          "homepage_url": "https://fractal.omni.dev",
+          "description": "A graphical cloud platform designed to simplify complex cloud infrastructure management and configuration. Think of it as a combination of Railway and Tilt, potentially powered by Kubernetes as a substrate.",
+          "logo": "🔷",
+          "tagline": "The geometry of deployment",
+          "license": "Apache-2.0",
+          "release_date": "",
+          "self_hostable": true,
+          "coming_soon": true,
+          "docs_url": "https://docs.omni.dev/grid/fractal"
+        },
+        {
+          "name": "Heartbeat",
+          "homepage_url": "https://heartbeat.omni.dev",
+          "description": "A robust heartbeat monitor with alerts.",
+          "logo": "💓",
+          "tagline": "Vital signs for vital services",
+          "license": "Apache-2.0",
+          "release_date": "",
+          "self_hostable": false,
+          "coming_soon": true,
+          "docs_url": "https://docs.omni.dev/grid/heartbeat"
+        },
+        {
+          "name": "Synapse",
+          "homepage_url": "https://synapse.omni.dev",
+          "description": "An AI router that aggregates MCP servers and LLM providers behind a single endpoint, providing intelligent request routing, tool discovery, and enterprise-grade governance for AI infrastructure.",
+          "logo": "🧠",
+          "tagline": "Orchestrated intelligence",
+          "license": "Apache-2.0",
+          "release_date": "",
+          "self_hostable": true,
+          "coming_soon": true,
+          "docs_url": "https://docs.omni.dev/grid/synapse"
+        },
+        {
+          "name": "Vortex",
+          "homepage_url": "https://vortex.omni.dev",
+          "description": "A powerful workflow builder and manager designed specifically for automating disparate workflows in the decentralized web, combining visual simplicity with robust API capabilities and pluggable execution backends.",
+          "logo": "🌪️",
+          "tagline": "Spin the web of automation",
+          "license": "Apache-2.0",
+          "release_date": "",
+          "self_hostable": true,
+          "coming_soon": true,
+          "docs_url": "https://docs.omni.dev/grid/vortex"
+        },
+        {
           "name": "Beacon",
           "homepage_url": "https://beacon.omni.dev",
           "description": "An always-on AI assistant runtime that connects to every channel — voice, Discord, Telegram, Slack, and more. Beacon is the substrate that powers Orin: it routes through Synapse for LLM orchestration, manages persistent memory, executes skills and tools, and transparently dispatches to the Omni ecosystem. Deploy a single binary and your assistant is everywhere.",
@@ -212,6 +271,7 @@ export const omniGarden = {
           "license": "Apache-2.0",
           "release_date": "2026-02-09",
           "self_hostable": true,
+          "coming_soon": false,
           "docs_url": "https://docs.omni.dev/grid/beacon"
         }
       ]
@@ -229,6 +289,15 @@ export const omniGarden = {
       "status": "planned"
     },
     {
+      "source": "Heartbeat",
+      "target": "Vortex",
+      "relations": [
+        "monitors"
+      ],
+      "description": "Heartbeat monitors health of all Omni services. Public status pages, alerting via webhooks, and SLA tracking.",
+      "status": "planned"
+    },
+    {
       "source": "persona.json",
       "target": "life.json",
       "relations": [
@@ -238,13 +307,31 @@ export const omniGarden = {
       "status": "implemented"
     },
     {
+      "source": "Omni CLI",
+      "target": "Synapse",
+      "relations": [
+        "consumes"
+      ],
+      "description": "Omni CLI routes LLM requests through Synapse when configured with a Synapse endpoint (managed keys mode). Users can also use BYOK mode to connect directly to providers, bypassing Synapse.",
+      "status": "planned"
+    },
+    {
       "source": "Runa",
       "target": "Backfeed",
       "relations": [
-        "consumes",
-        "integrates"
+        "integrates",
+        "consumes"
       ],
       "description": "Runa integrates Backfeed for user feedback on projects. Feedback items can be converted to Runa tasks, and task completion can trigger feedback status updates.",
+      "status": "planned"
+    },
+    {
+      "source": "Heartbeat",
+      "target": "Runa",
+      "relations": [
+        "monitors"
+      ],
+      "description": "Heartbeat monitors health of all Omni services. Public status pages, alerting via webhooks, and SLA tracking.",
       "status": "planned"
     },
     {
@@ -268,12 +355,30 @@ export const omniGarden = {
     },
     {
       "source": "Beacon",
+      "target": "Synapse",
+      "relations": [
+        "consumes"
+      ],
+      "description": "Beacon routes all LLM, STT, and TTS requests through Synapse. Synapse handles provider selection, smart routing, and usage metering. Beacon sends Gatekeeper JWTs for user identification.",
+      "status": "implemented"
+    },
+    {
+      "source": "Beacon",
       "target": "persona.json",
       "relations": [
         "reads-from"
       ],
       "description": "Beacon loads persona definitions following the persona.json specification. Personas define non-human identity including voice configuration, personality, branding, and capabilities.",
       "status": "implemented"
+    },
+    {
+      "source": "Heartbeat",
+      "target": "Backfeed",
+      "relations": [
+        "monitors"
+      ],
+      "description": "Heartbeat monitors health of all Omni services. Public status pages, alerting via webhooks, and SLA tracking.",
+      "status": "planned"
     }
   ]
 } as GardenSchema;
