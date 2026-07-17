@@ -1,7 +1,8 @@
-import { buildGarden, CATALOG_QUERY } from "./buildGarden";
+import { fetchPublicCatalog } from "@omnidotdev/providers/catalog";
+
+import { buildGarden } from "./buildGarden";
 
 import type { GardenSchema } from "@omnidotdev/garden";
-import type { CatalogData } from "./buildGarden";
 
 /**
  * Fetch the live public catalog from omni-api and transform it into the
@@ -10,27 +11,13 @@ import type { CatalogData } from "./buildGarden";
  * on the next load, no rebuild). If the fetch fails, the caller keeps the
  * committed `garden.generated.ts` snapshot as an offline fallback.
  */
-
-const GRAPHQL_URL =
-	import.meta.env.VITE_OMNI_API_GRAPHQL_URL ?? "https://api.omni.dev/graphql";
-
-type GqlResponse = { errors?: unknown; data?: CatalogData };
+const GRAPHQL_URL = import.meta.env.VITE_OMNI_API_GRAPHQL_URL as
+	| string
+	| undefined;
 
 export const fetchGarden = async (): Promise<GardenSchema> => {
-	const res = await fetch(GRAPHQL_URL, {
-		method: "POST",
-		headers: { "content-type": "application/json" },
-		body: JSON.stringify({ query: CATALOG_QUERY }),
-	});
-
-	if (!res.ok) {
-		throw new Error(`omni-api returned ${res.status}`);
-	}
-
-	const payload = (await res.json()) as GqlResponse;
-	if (payload.errors || !payload.data) {
-		throw new Error("omni-api returned no usable catalog");
-	}
-
-	return buildGarden(payload.data);
+	const catalog = await fetchPublicCatalog(
+		GRAPHQL_URL ? { url: GRAPHQL_URL } : {},
+	);
+	return buildGarden(catalog);
 };

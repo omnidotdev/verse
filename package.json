@@ -32,7 +32,7 @@
   },
   "dependencies": {
     "@omnidotdev/garden": "github:omnidotdev/garden-canvas#b80c254e5fe11754b1cbaa5e23a425f66d263aa1",
-    "@omnidotdev/providers": "github:omnidotdev/providers#5909b95",
+    "@omnidotdev/providers": "github:omnidotdev/providers#1b4088fe7f55de8b5a01e4839c0f94aca0f8e63b",
     "@tailwindcss/vite": "^4.2.1",
     "@tanstack/react-query": "^5.101.2",
     "@tanstack/react-router": "^1.166.3",

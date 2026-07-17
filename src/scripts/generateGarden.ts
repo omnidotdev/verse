@@ -1,16 +1,15 @@
 import { resolve } from "node:path";
 
-import { buildGarden, CATALOG_QUERY } from "../lib/garden/buildGarden";
+import { fetchPublicCatalog } from "@omnidotdev/providers/catalog";
 
-import type { CatalogData } from "../lib/garden/buildGarden";
+import { buildGarden } from "../lib/garden/buildGarden";
 
 /**
  * Build the committed Omniverse garden snapshot from the catalog SSOT.
  *
- * Pulls the public catalog from omni-api's GraphQL (the catalog is DB-synced
- * there and filtered to `is_public` server-side) and runs the shared
- * `buildGarden` transform (see `src/lib/garden/buildGarden.ts`), the same one
- * the runtime fetch uses, so the snapshot and the live garden can never drift.
+ * Fetches the public catalog from omni-api via the shared client and runs the
+ * same `buildGarden` transform the runtime fetch uses, so the snapshot and the
+ * live garden can never drift.
  *
  * The result is cached to the committed `src/lib/garden/garden.generated.ts`.
  * This snapshot is the OFFLINE FALLBACK: at runtime the app fetches the live
@@ -19,44 +18,24 @@ import type { CatalogData } from "../lib/garden/buildGarden";
  * Never hand-edit the generated file.
  */
 
-const GRAPHQL_URL =
-	process.env.OMNI_API_GRAPHQL_URL ?? "https://api.omni.dev/graphql";
+const GRAPHQL_URL = process.env.OMNI_API_GRAPHQL_URL;
 const outPath = resolve(import.meta.dir, "../lib/garden/garden.generated.ts");
 
-type GqlResponse = { errors?: unknown; data?: CatalogData };
-
-let payload: GqlResponse | undefined;
-try {
-	const res = await fetch(GRAPHQL_URL, {
-		method: "POST",
-		headers: { "content-type": "application/json" },
-		body: JSON.stringify({ query: CATALOG_QUERY }),
-	});
-	if (res.ok) {
-		payload = (await res.json()) as GqlResponse;
-	} else {
-		// biome-ignore lint/suspicious/noConsole: build script output
-		console.warn(`[garden] omni-api ${GRAPHQL_URL} returned ${res.status}`);
-	}
-} catch (error) {
+const catalog = await fetchPublicCatalog(
+	GRAPHQL_URL ? { url: GRAPHQL_URL } : {},
+).catch((error) => {
 	// biome-ignore lint/suspicious/noConsole: build script output
 	console.warn(
-		`[garden] could not reach omni-api at ${GRAPHQL_URL} (${error})`,
+		`[garden] could not reach omni-api (${error}); keeping committed garden.generated.ts`,
 	);
-}
+	return null;
+});
 
-// Fall back to the committed cache when omni-api is unreachable or empty, so a
-// build without egress (or during an outage) still ships the last good garden.
-const data = payload?.data;
-if (payload?.errors || !data) {
-	// biome-ignore lint/suspicious/noConsole: build script output
-	console.warn(
-		"[garden] no usable catalog from omni-api; keeping committed garden.generated.ts",
-	);
-	process.exit(0);
-}
+// Keep the committed cache when omni-api is unreachable, so a build without
+// egress (or during an outage) still ships the last good garden.
+if (!catalog) process.exit(0);
 
-const garden = buildGarden(data);
+const garden = buildGarden(catalog);
 
 const file = `/**
  * Omniverse garden snapshot, generated from the catalog SSOT (omni-api GraphQL).

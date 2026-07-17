@@ -224,9 +224,9 @@ export const omniGarden = {
           "description": "A graphical cloud platform designed to simplify complex cloud infrastructure management and configuration. Think of it as a combination of Railway and Tilt, potentially powered by Kubernetes as a substrate.",
           "logo": "🔷",
           "tagline": "The geometry of deployment",
-          "license": "Apache-2.0",
+          "license": "Proprietary",
           "release_date": "",
-          "self_hostable": true,
+          "self_hostable": false,
           "coming_soon": true,
           "docs_url": "https://docs.omni.dev/grid/fractal"
         },
@@ -310,8 +310,8 @@ export const omniGarden = {
       "source": "Beacon",
       "target": "life.json",
       "relations": [
-        "writes-to",
-        "reads-from"
+        "reads-from",
+        "writes-to"
       ],
       "description": "Beacon reads user preferences, interests, and context from life.json to personalize AI assistant interactions. Learned preferences and conversation summaries can be written back for cross-device continuity.",
       "status": "planned"
@@ -356,8 +356,8 @@ export const omniGarden = {
       "source": "Runa",
       "target": "Backfeed",
       "relations": [
-        "integrates",
-        "consumes"
+        "consumes",
+        "integrates"
       ],
       "description": "Runa integrates Backfeed for user feedback on projects. Feedback items can be converted to Runa tasks, and task completion can trigger feedback status updates.",
       "status": "planned"

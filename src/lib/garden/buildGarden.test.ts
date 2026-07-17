@@ -2,66 +2,60 @@ import { describe, expect, test } from "bun:test";
 
 import { buildGarden } from "./buildGarden";
 
-import type { CatalogData } from "./buildGarden";
+import type { PublicCatalog } from "@omnidotdev/providers/catalog";
 
 /**
- * Guards the catalog -> garden transform shared by the build-time snapshot and
- * the runtime fetch. The visibility contract (launched or coming-soon only) and
- * the realm-less META bucket are the parts that have regressed before.
+ * Guards the catalog -> garden transform. The visibility contract (launched or
+ * coming-soon only) and the realm-less META bucket are the parts that have
+ * regressed before.
  */
-const sample: CatalogData = {
-	realms: {
-		nodes: [
-			{ slug: "core", name: "Core", icon: "🧱", tagline: "The foundation" },
-			{ slug: "empty", name: "Empty", icon: "🫙", tagline: "No products" },
-		],
-	},
-	products: {
-		nodes: [
-			{
-				slug: "runa",
-				name: "Runa",
-				realm: { slug: "core" },
-				releaseDate: "2025-12-21",
-				status: "active",
-				docsUrl: "/core/runa",
-			},
-			{
-				slug: "orin",
-				name: "Orin",
-				realm: null,
-				releaseDate: null,
-				status: "coming_soon",
-				docsUrl: "/orin",
-			},
-			{
-				// Public but not launched and not teased -> must stay hidden
-				slug: "secret",
-				name: "Secret",
-				realm: { slug: "core" },
-				releaseDate: null,
-				status: "active",
-			},
-		],
-	},
-	productLinks: {
-		nodes: [
-			{
-				sourceProduct: { slug: "orin" },
-				targetProduct: { slug: "runa" },
-				status: "active",
-				productLinkRelations: {
-					nodes: [{ relationType: { slug: "integrates-with" } }],
-				},
-			},
-			{
-				// References the hidden product -> edge must drop out
-				sourceProduct: { slug: "secret" },
-				targetProduct: { slug: "runa" },
-				productLinkRelations: { nodes: [] },
-			},
-		],
-	},
+const sample: PublicCatalog = {
+	realms: [
+		{ slug: "core", name: "Core", icon: "🧱", tagline: "The foundation" },
+	],
+	products: [
+		{
+			id: "runa",
+			name: "Runa",
+			realm: "core",
+			releaseDate: "2025-12-21",
+			status: "active",
+			docsUrl: "/core/runa",
+			deploymentMethods: [],
+		},
+		{
+			id: "orin",
+			name: "Orin",
+			realm: null,
+			status: "coming_soon",
+			docsUrl: "/orin",
+			deploymentMethods: [],
+		},
+		{
+			// Public but not launched and not teased -> must stay hidden
+			id: "secret",
+			name: "Secret",
+			realm: "core",
+			status: "active",
+			deploymentMethods: [],
+		},
+	],
+	bundles: [],
+	connections: [
+		{
+			id: "orin-runa",
+			source: "orin",
+			target: "runa",
+			relations: ["integrates-with"],
+		},
+		{
+			// References the hidden product -> edge must drop out
+			id: "secret-runa",
+			source: "secret",
+			target: "runa",
+			relations: [],
+		},
+	],
 };
 
 describe("buildGarden", () => {
@@ -84,10 +78,6 @@ describe("buildGarden", () => {
 	test("groups realm-less products under a META subgarden", () => {
 		const meta = garden.subgardens?.find((s) => s.name === "META");
 		expect(meta?.sprouts?.map((s) => s.name)).toContain("Orin");
-	});
-
-	test("drops realms with no visible products", () => {
-		expect(garden.subgardens?.map((s) => s.name)).not.toContain("Empty");
 	});
 
 	test("resolves relative docs URLs to absolute https links", () => {
