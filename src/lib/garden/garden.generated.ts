@@ -275,6 +275,30 @@ export const omniGarden = {
           "docs_url": "https://docs.omni.dev/grid/beacon"
         }
       ]
+    },
+    {
+      "name": "META",
+      "description": "Cross-realm products that span the whole ecosystem",
+      "icon": "🌐",
+      "supergardens": [
+        {
+          "name": "Omniverse"
+        }
+      ],
+      "sprouts": [
+        {
+          "name": "Orin",
+          "homepage_url": "https://orin.omni.dev",
+          "description": "Orin is Omni's friendly otter mascot who appears as a character in Nemoral and serves as an AI assistant with voice capabilities, specializing in knowledge about the Omni ecosystem. Powered by Beacon.",
+          "logo": "🦦",
+          "tagline": "Otterly intelligent",
+          "license": "Apache-2.0",
+          "release_date": "",
+          "self_hostable": false,
+          "coming_soon": true,
+          "docs_url": "https://docs.omni.dev/orin"
+        }
+      ]
     }
   ],
   "edges": [
@@ -296,6 +320,15 @@ export const omniGarden = {
       ],
       "description": "Heartbeat monitors health of all Omni services. Public status pages, alerting via webhooks, and SLA tracking.",
       "status": "planned"
+    },
+    {
+      "source": "Orin",
+      "target": "persona.json",
+      "relations": [
+        "reads-from"
+      ],
+      "description": "Orin is defined as an instance of the persona.json specification. The orin.json file follows the persona.json v1 schema.",
+      "status": "implemented"
     },
     {
       "source": "persona.json",
@@ -369,6 +402,15 @@ export const omniGarden = {
         "reads-from"
       ],
       "description": "Beacon loads persona definitions following the persona.json specification. Personas define non-human identity including voice configuration, personality, branding, and capabilities.",
+      "status": "implemented"
+    },
+    {
+      "source": "Beacon",
+      "target": "Orin",
+      "relations": [
+        "integrates"
+      ],
+      "description": "Orin is the flagship persona for Beacon, providing a friendly otter assistant with expertise in the Omni ecosystem. Beacon loads Orin's personality, wake words, and voice configuration.",
       "status": "implemented"
     },
     {

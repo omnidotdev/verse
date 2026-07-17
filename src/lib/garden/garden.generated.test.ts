@@ -17,10 +17,11 @@ describe("omniGarden", () => {
 		expect(sprouts.length).toBeGreaterThan(0);
 	});
 
-	test("includes only launched products", () => {
-		// releaseDate is the catalog's launch signal, so every sprout must have one
+	test("includes only launched or coming-soon products", () => {
+		// A sprout is visible only if it has launched (releaseDate is the catalog's
+		// launch signal) or is explicitly teased as coming soon
 		for (const sprout of sprouts) {
-			expect(sprout.release_date).toBeTruthy();
+			expect(Boolean(sprout.release_date) || sprout.coming_soon).toBeTruthy();
 		}
 
 		const names = sprouts.map((sprout) => sprout.name);
