@@ -4,7 +4,7 @@ import { Garden } from "@omnidotdev/garden";
 import { createFileRoute } from "@tanstack/react-router";
 
 import ThemeToggle from "@/components/theme-toggle";
-import { omniGarden } from "@/lib/garden/garden.generated";
+import { useGarden } from "@/lib/garden/useGarden";
 
 // `view` is the product's word for the layout, used in both the URL and the
 // buttons; `plugin` is the name Garden registers it under. The two differ for
@@ -27,6 +27,7 @@ const toLayout = (value: unknown): Layout | undefined =>
 const HomeComponent = () => {
 	const { view } = Route.useSearch();
 	const navigate = Route.useNavigate();
+	const { data: garden } = useGarden();
 
 	const layout = toLayout(view) ?? DEFAULT_LAYOUT;
 	const { plugin } =
@@ -71,7 +72,7 @@ const HomeComponent = () => {
 				expandSubgardens
 				showRelations
 				showMinimap={false}
-				schema={omniGarden}
+				schema={garden}
 				controlOptions={{ position: "bottom-left" }}
 			/>
 		</div>

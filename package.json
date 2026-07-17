@@ -34,6 +34,7 @@
     "@omnidotdev/garden": "github:omnidotdev/garden-canvas#b80c254e5fe11754b1cbaa5e23a425f66d263aa1",
     "@omnidotdev/providers": "github:omnidotdev/providers#5909b95",
     "@tailwindcss/vite": "^4.2.1",
+    "@tanstack/react-query": "^5.101.2",
     "@tanstack/react-router": "^1.166.3",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
