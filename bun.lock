@@ -5,7 +5,7 @@
     "": {
       "name": "@omnidotdev/verse",
       "dependencies": {
-        "@omnidotdev/garden": "github:omnidotdev/garden-canvas#b80c254e5fe11754b1cbaa5e23a425f66d263aa1",
+        "@omnidotdev/garden": "github:omnidotdev/garden-canvas#0eb3705333ff0f28b45a5edfeb07dd1058a7ee34",
         "@omnidotdev/providers": "github:omnidotdev/providers#1b4088fe7f55de8b5a01e4839c0f94aca0f8e63b",
         "@tailwindcss/vite": "^4.2.1",
         "@tanstack/react-query": "^5.101.2",
@@ -192,7 +192,7 @@
 
     "@nodelib/fs.walk": ["@nodelib/fs.walk@1.2.8", "", { "dependencies": { "@nodelib/fs.scandir": "2.1.5", "fastq": "^1.6.0" } }, "sha512-oGB+UxlgWcgQkgwo8GcEGwemoTFt3FIO9ababBmaGwXIoBKZ+GTy0pP185beGg7Llih/NSHSV2XAs1lnznocSg=="],
 
-    "@omnidotdev/garden": ["@omnidotdev/garden@github:omnidotdev/garden-canvas#b80c254", { "dependencies": { "@radix-ui/react-dialog": "^1.1.15", "@radix-ui/react-slot": "^1.2.4", "@react-three/drei": "^10.0.0", "@react-three/fiber": "^9.0.0", "@xyflow/react": "^12.10.0", "class-variance-authority": "^0.7.1", "clsx": "^2.1.1", "elkjs": "^0.11.0", "lucide-react": "^0.562.0", "tailwind-merge": "^3.4.0", "three": "^0.180.0", "ts-pattern": "^5.9.0" }, "peerDependencies": { "react": "^19.0.0", "react-dom": "^19.0.0" } }, "omnidotdev-garden-canvas-b80c254", "sha512-PXAppA2gviSy3+3VtcbnIpFZZERG+pTwRRepI/TyoDRHI/Lup9uqVn6/UCKsKbsQ9wVPvFQ/cWXEnl0ghSb8/g=="],
+    "@omnidotdev/garden": ["@omnidotdev/garden@github:omnidotdev/garden-canvas#0eb3705", { "dependencies": { "@radix-ui/react-dialog": "^1.1.15", "@radix-ui/react-slot": "^1.2.4", "@react-three/drei": "^10.0.0", "@react-three/fiber": "^9.0.0", "@xyflow/react": "^12.10.0", "class-variance-authority": "^0.7.1", "clsx": "^2.1.1", "elkjs": "^0.11.0", "lucide-react": "^0.562.0", "tailwind-merge": "^3.4.0", "three": "^0.180.0", "ts-pattern": "^5.9.0" }, "peerDependencies": { "react": "^19.0.0", "react-dom": "^19.0.0" } }, "omnidotdev-garden-canvas-0eb3705", "sha512-v37fi1zZYC+VFeXCKa/BjzpjjHXGDAvSI5+6WrYjck7sOTeYJK0MZcfXDQwNDPQQEHXhLIqHnwRTbUvD0i4HlQ=="],
 
     "@omnidotdev/providers": ["@omnidotdev/providers@github:omnidotdev/providers#1b4088f", { "dependencies": { "ajv": "^8.18.0", "jose": "^6.1.3" }, "peerDependencies": { "@aws-sdk/client-s3": ">=3.0.0", "@aws-sdk/s3-request-presigner": ">=3.0.0", "@envelop/types": ">=5.0.0", "@escape.tech/graphql-armor": ">=3.0.0", "@iggy.rs/sdk": ">=1.0.0", "@openfeature/server-sdk": ">=1.0.0", "@tanstack/query-core": ">=5.0.0", "ajv": ">=8.0.0", "graphile-export": ">=1.0.0-rc.0", "postgraphile": ">=5.0.0-rc.0", "react": ">=19.0.0", "unleash-client": ">=6.0.0" }, "optionalPeers": ["@aws-sdk/client-s3", "@aws-sdk/s3-request-presigner", "@envelop/types", "@escape.tech/graphql-armor", "@iggy.rs/sdk", "@openfeature/server-sdk", "@tanstack/query-core", "ajv", "graphile-export", "postgraphile", "react", "unleash-client"] }, "omnidotdev-providers-1b4088f", "sha512-Zs60ZK1fuicXZ7MvapG2Hb3lz12z21MMJVKimKrzlLfcyeUtJtoXnHzoWs+OBQK53r96DBmBSePrNKhAGx+QMg=="],
 
