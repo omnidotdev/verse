@@ -31,7 +31,7 @@
     "vite-tsconfig-paths": "^6.1.1"
   },
   "dependencies": {
-    "@omnidotdev/garden": "github:omnidotdev/garden-canvas#0eb3705333ff0f28b45a5edfeb07dd1058a7ee34",
+    "@omnidotdev/garden": "github:omnidotdev/garden-canvas#38a0bd723c827fe001ebc989c3a36f532d6108bf",
     "@omnidotdev/providers": "github:omnidotdev/providers#1b4088fe7f55de8b5a01e4839c0f94aca0f8e63b",
     "@tailwindcss/vite": "^4.2.1",
     "@tanstack/react-query": "^5.101.2",
