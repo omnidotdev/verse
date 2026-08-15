@@ -17,6 +17,30 @@ export const omniGarden = {
   "icon": "🌱",
   "subgardens": [
     {
+      "name": "KINDRED",
+      "description": "Social, consumer, and lifestyle - Consumer-facing products for creators, communities, and everyday life. Identity, social connection, lifestyle, and meaningful digital relationships.",
+      "icon": "🤝",
+      "supergardens": [
+        {
+          "name": "Omniverse"
+        }
+      ],
+      "sprouts": [
+        {
+          "name": "Charm",
+          "homepage_url": "https://charm.omni.dev",
+          "description": "A free, open-source, self-hostable all-in-one Discord bot for community management. Charm brings themed welcome cards, moderation, automod and anti-raid, reaction roles, onboarding, leveling, tickets, and full audit logging together behind a genuinely polished configuration dashboard, with per-server theming and branding included (never paywalled) and an optional AI layer powered by Orin.",
+          "logo": "📿",
+          "tagline": "Your community's lucky charm",
+          "license": "Apache-2.0",
+          "release_date": "",
+          "self_hostable": true,
+          "coming_soon": true,
+          "docs_url": "https://docs.omni.dev/kindred/charm"
+        }
+      ]
+    },
+    {
       "name": "CODEX",
       "description": "Specifications and standards - Specifications, standards, and schemas. The protocols and formats that define how Omni systems communicate and interoperate.",
       "icon": "📜",
@@ -36,7 +60,10 @@ export const omniGarden = {
           "release_date": "2025-06-20",
           "self_hostable": false,
           "coming_soon": false,
-          "docs_url": "https://docs.omni.dev/codex/garden"
+          "docs_url": "https://docs.omni.dev/codex/garden",
+          "theme": {
+            "primary_color": "#22c55e"
+          }
         },
         {
           "name": "life.json",
@@ -192,7 +219,10 @@ export const omniGarden = {
           "release_date": "2025-12-21",
           "self_hostable": true,
           "coming_soon": false,
-          "docs_url": "https://docs.omni.dev/core/runa"
+          "docs_url": "https://docs.omni.dev/core/runa",
+          "theme": {
+            "primary_color": "#f59e0b"
+          }
         },
         {
           "name": "Backfeed",
@@ -204,7 +234,10 @@ export const omniGarden = {
           "release_date": "2025-05-06",
           "self_hostable": true,
           "coming_soon": false,
-          "docs_url": "https://docs.omni.dev/core/backfeed"
+          "docs_url": "https://docs.omni.dev/core/backfeed",
+          "theme": {
+            "primary_color": "#f43f5e"
+          }
         }
       ]
     },
@@ -241,6 +274,18 @@ export const omniGarden = {
           "self_hostable": false,
           "coming_soon": true,
           "docs_url": "https://docs.omni.dev/grid/heartbeat"
+        },
+        {
+          "name": "Herald",
+          "homepage_url": "https://herald.omni.dev",
+          "description": "A transactional and marketing email platform. Sends receipts, notifications, auth emails, and broadcasts from dedicated IPs with managed deliverability, suppression, and per-tenant reputation isolation, natively wired into the Omni event and workflow stack. Available as a managed service or self-hosted.",
+          "logo": "🕊️",
+          "tagline": "Always in flight",
+          "license": "Apache-2.0",
+          "release_date": "2026-08-12",
+          "self_hostable": true,
+          "coming_soon": false,
+          "docs_url": "https://docs.omni.dev/grid/herald"
         },
         {
           "name": "Synapse",
@@ -344,6 +389,15 @@ export const omniGarden = {
       "status": "implemented"
     },
     {
+      "source": "Charm",
+      "target": "Vortex",
+      "relations": [
+        "produces"
+      ],
+      "description": "Charm emits CloudEvents (source omni.charm, types charm.<entity>.<action>) through Vortex for moderation, membership, and configuration changes, consumed by Beacon for AI features and by other Omni services.",
+      "status": "planned"
+    },
+    {
       "source": "Omni CLI",
       "target": "Synapse",
       "relations": [
@@ -398,6 +452,15 @@ export const omniGarden = {
       ],
       "description": "Beacon routes all LLM, STT, and TTS requests through Synapse. Synapse handles provider selection, smart routing, and usage metering. Beacon sends Gatekeeper JWTs for user identification.",
       "status": "implemented"
+    },
+    {
+      "source": "Charm",
+      "target": "Beacon",
+      "relations": [
+        "delegates-to"
+      ],
+      "description": "Charm delegates its optional AI layer to Beacon: natural-language automod authoring, AI moderation triage, and the in-server Orin persona. Charm owns the moderation and utility engine; Beacon owns the conversational persona. The two coordinate over CloudEvents via Vortex rather than sharing a Discord connection.",
+      "status": "planned"
     },
     {
       "source": "Beacon",
