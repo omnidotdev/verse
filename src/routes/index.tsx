@@ -12,6 +12,7 @@ import { useGarden } from "@/lib/garden/useGarden";
 const LAYOUTS = [
 	{ view: "tree", label: "Tree", plugin: "tree" },
 	{ view: "beehive", label: "Beehive", plugin: "hex" },
+	{ view: "bento", label: "Bento", plugin: "bento" },
 	{ view: "3d", label: "3D", plugin: "3d" },
 ] as const;
 

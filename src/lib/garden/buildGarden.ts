@@ -41,6 +41,12 @@ const sprout = (p: PublicProduct) => ({
 	self_hostable: p.selfHostable ?? false,
 	coming_soon: isComingSoon(p),
 	docs_url: resolveDocsUrl(p.docsUrl),
+	// The product's real brand color from the catalog (W3C design token), used
+	// to tint its bento tile. Absent until authored, so tiles fall back to a
+	// stable per-product hue rather than a shared default.
+	...(p.brand?.primary?.$value
+		? { theme: { primary_color: p.brand.primary.$value } }
+		: {}),
 });
 
 /** Transform the public catalog into the Omniverse garden schema. */

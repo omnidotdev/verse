@@ -17,6 +17,19 @@ const viteConfig = defineConfig(({ command }) => ({
 		port: 3000,
 		host: "0.0.0.0",
 		allowedHosts: ["verse.omni.dev"],
+		// Proxy the live catalog fetch through the dev server so the browser
+		// request is same-origin. omni-api's CORS whitelist covers the deployed
+		// origins (verse.omni.dev) but not localhost, so a direct browser fetch
+		// from dev is blocked; server-to-server proxying sidesteps CORS entirely.
+		// Point the catalog client at this path with VITE_OMNI_API_GRAPHQL_URL
+		// (see .env.development). Dev only, has no effect on the production build.
+		proxy: {
+			"/omni-api/graphql": {
+				target: "https://api.omni.dev",
+				changeOrigin: true,
+				rewrite: (path) => path.replace(/^\/omni-api\/graphql/, "/graphql"),
+			},
+		},
 	},
 	plugins: [
 		// NB: command is `serve` in development, `build` in production

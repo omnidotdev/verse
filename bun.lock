@@ -5,8 +5,8 @@
     "": {
       "name": "@omnidotdev/verse",
       "dependencies": {
-        "@omnidotdev/garden": "github:omnidotdev/garden-canvas#939dbcf8a4146306ababed6c16c9c235b62c2c56",
-        "@omnidotdev/providers": "github:omnidotdev/providers#1b4088fe7f55de8b5a01e4839c0f94aca0f8e63b",
+        "@omnidotdev/garden": "github:omnidotdev/garden-canvas#2809906a2562abdc274e19341e76e64c9f71a84b",
+        "@omnidotdev/providers": "github:omnidotdev/providers#3c7fb9b7f2080cfc5004a77902faeea06a99b6cc",
         "@tailwindcss/vite": "^4.2.1",
         "@tanstack/react-query": "^5.101.2",
         "@tanstack/react-router": "^1.166.3",
@@ -192,9 +192,9 @@
 
     "@nodelib/fs.walk": ["@nodelib/fs.walk@1.2.8", "", { "dependencies": { "@nodelib/fs.scandir": "2.1.5", "fastq": "^1.6.0" } }, "sha512-oGB+UxlgWcgQkgwo8GcEGwemoTFt3FIO9ababBmaGwXIoBKZ+GTy0pP185beGg7Llih/NSHSV2XAs1lnznocSg=="],
 
-    "@omnidotdev/garden": ["@omnidotdev/garden@github:omnidotdev/garden-canvas#939dbcf", { "dependencies": { "@radix-ui/react-dialog": "^1.1.15", "@radix-ui/react-slot": "^1.2.4", "@react-three/drei": "^10.0.0", "@react-three/fiber": "^9.0.0", "@xyflow/react": "^12.10.0", "class-variance-authority": "^0.7.1", "clsx": "^2.1.1", "elkjs": "^0.11.0", "lucide-react": "^0.562.0", "tailwind-merge": "^3.4.0", "three": "^0.180.0", "ts-pattern": "^5.9.0" }, "peerDependencies": { "react": "^19.0.0", "react-dom": "^19.0.0" } }, "omnidotdev-garden-canvas-939dbcf", "sha512-osr9kM58WnRb9t5IZZX8ezTM6Yn1m9HqigmZukXUiJoDFWT95+M0T7xrn7uWZji1TLYX1BoNZkl9hUI8MrhLGQ=="],
+    "@omnidotdev/garden": ["@omnidotdev/garden@github:omnidotdev/garden-canvas#2809906", { "dependencies": { "@radix-ui/react-dialog": "^1.1.15", "@radix-ui/react-slot": "^1.2.4", "@react-three/drei": "^10.0.0", "@react-three/fiber": "^9.0.0", "@xyflow/react": "^12.10.0", "class-variance-authority": "^0.7.1", "clsx": "^2.1.1", "elkjs": "^0.11.0", "lucide-react": "^0.562.0", "tailwind-merge": "^3.4.0", "three": "^0.180.0", "ts-pattern": "^5.9.0" }, "peerDependencies": { "react": "^19.0.0", "react-dom": "^19.0.0" } }, "omnidotdev-garden-canvas-2809906", "sha512-xJOuVIZ8gKCZAL1yKmARAy9I6AvwTwDM51T9HCOrkIqp5bizx7BaKlJ2DCV/lZWoc4rvVHARR6kwg6gOQN0qqQ=="],
 
-    "@omnidotdev/providers": ["@omnidotdev/providers@github:omnidotdev/providers#1b4088f", { "dependencies": { "ajv": "^8.18.0", "jose": "^6.1.3" }, "peerDependencies": { "@aws-sdk/client-s3": ">=3.0.0", "@aws-sdk/s3-request-presigner": ">=3.0.0", "@envelop/types": ">=5.0.0", "@escape.tech/graphql-armor": ">=3.0.0", "@iggy.rs/sdk": ">=1.0.0", "@openfeature/server-sdk": ">=1.0.0", "@tanstack/query-core": ">=5.0.0", "ajv": ">=8.0.0", "graphile-export": ">=1.0.0-rc.0", "postgraphile": ">=5.0.0-rc.0", "react": ">=19.0.0", "unleash-client": ">=6.0.0" }, "optionalPeers": ["@aws-sdk/client-s3", "@aws-sdk/s3-request-presigner", "@envelop/types", "@escape.tech/graphql-armor", "@iggy.rs/sdk", "@openfeature/server-sdk", "@tanstack/query-core", "ajv", "graphile-export", "postgraphile", "react", "unleash-client"] }, "omnidotdev-providers-1b4088f", "sha512-Zs60ZK1fuicXZ7MvapG2Hb3lz12z21MMJVKimKrzlLfcyeUtJtoXnHzoWs+OBQK53r96DBmBSePrNKhAGx+QMg=="],
+    "@omnidotdev/providers": ["@omnidotdev/providers@github:omnidotdev/providers#3c7fb9b", { "dependencies": { "ajv": "^8.18.0", "jose": "^6.1.3" }, "peerDependencies": { "@aws-sdk/client-s3": ">=3.0.0", "@aws-sdk/s3-request-presigner": ">=3.0.0", "@envelop/types": ">=5.0.0", "@escape.tech/graphql-armor": ">=3.0.0", "@iggy.rs/sdk": ">=1.0.0", "@openfeature/server-sdk": ">=1.0.0", "@tanstack/query-core": ">=5.0.0", "ajv": ">=8.0.0", "graphile-export": ">=1.0.0-rc.0", "postgraphile": ">=5.0.0-rc.0", "react": ">=19.0.0", "unleash-client": ">=6.0.0" }, "optionalPeers": ["@aws-sdk/client-s3", "@aws-sdk/s3-request-presigner", "@envelop/types", "@escape.tech/graphql-armor", "@iggy.rs/sdk", "@openfeature/server-sdk", "@tanstack/query-core", "ajv", "graphile-export", "postgraphile", "react", "unleash-client"] }, "omnidotdev-providers-3c7fb9b", "sha512-D+pQFlZeDx4lxc7jdB7CUhmfrFLOF9zn8UOvwIOLYDok2DejOpymatVCAhpcFppr3qWoNpTCfPu6VICccgRtPg=="],
 
     "@oxc-resolver/binding-android-arm-eabi": ["@oxc-resolver/binding-android-arm-eabi@11.19.1", "", { "os": "android", "cpu": "arm" }, "sha512-aUs47y+xyXHUKlbhqHUjBABjvycq6YSD7bpxSW7vplUmdzAlJ93yXY6ZR0c1o1x5A/QKbENCvs3+NlY8IpIVzg=="],
 
