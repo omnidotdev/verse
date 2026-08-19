@@ -60,7 +60,7 @@ export const omniGarden = {
           "release_date": "2025-06-20",
           "self_hostable": false,
           "coming_soon": false,
-          "docs_url": "https://docs.omni.dev/codex/garden",
+          "docs_url": "https://docs.omni.dev/products/garden",
           "theme": {
             "primary_color": "#22c55e"
           }
@@ -75,7 +75,7 @@ export const omniGarden = {
           "release_date": "2026-02-06",
           "self_hostable": false,
           "coming_soon": false,
-          "docs_url": "https://docs.omni.dev/codex/life-json"
+          "docs_url": "https://docs.omni.dev/products/life-json"
         },
         {
           "name": "persona.json",
@@ -87,7 +87,7 @@ export const omniGarden = {
           "release_date": "2026-02-06",
           "self_hostable": false,
           "coming_soon": false,
-          "docs_url": "https://docs.omni.dev/codex/persona-json"
+          "docs_url": "https://docs.omni.dev/products/persona-json"
         }
       ]
     },
@@ -111,7 +111,7 @@ export const omniGarden = {
           "release_date": "2025-10-31",
           "self_hostable": false,
           "coming_soon": false,
-          "docs_url": "https://docs.omni.dev/reality/rdk"
+          "docs_url": "https://docs.omni.dev/products/rdk"
         }
       ]
     },
@@ -135,7 +135,7 @@ export const omniGarden = {
           "release_date": "2026-01-01",
           "self_hostable": false,
           "coming_soon": false,
-          "docs_url": "https://docs.omni.dev/armory/eden"
+          "docs_url": "https://docs.omni.dev/products/eden"
         },
         {
           "name": "Omni Terminal",
@@ -147,7 +147,7 @@ export const omniGarden = {
           "release_date": "2026-02-27",
           "self_hostable": true,
           "coming_soon": false,
-          "docs_url": "https://docs.omni.dev/armory/omni-terminal"
+          "docs_url": "https://docs.omni.dev/products/omni-terminal"
         },
         {
           "name": "Omni CLI",
@@ -159,7 +159,7 @@ export const omniGarden = {
           "release_date": "2026-01-27",
           "self_hostable": false,
           "coming_soon": false,
-          "docs_url": "https://docs.omni.dev/armory/omni-cli"
+          "docs_url": "https://docs.omni.dev/products/omni-cli"
         }
       ]
     },
@@ -183,7 +183,7 @@ export const omniGarden = {
           "release_date": "2026-07-06",
           "self_hostable": false,
           "coming_soon": false,
-          "docs_url": "https://docs.omni.dev/sigil/thornberry"
+          "docs_url": "https://docs.omni.dev/products/thornberry"
         },
         {
           "name": "Zenpetal",
@@ -195,7 +195,7 @@ export const omniGarden = {
           "release_date": "2023-10-30",
           "self_hostable": false,
           "coming_soon": false,
-          "docs_url": "https://docs.omni.dev/sigil/zenpetal"
+          "docs_url": "https://docs.omni.dev/products/zenpetal"
         }
       ]
     },
@@ -219,7 +219,7 @@ export const omniGarden = {
           "release_date": "2025-12-21",
           "self_hostable": true,
           "coming_soon": false,
-          "docs_url": "https://docs.omni.dev/core/runa",
+          "docs_url": "https://docs.omni.dev/products/runa",
           "theme": {
             "primary_color": "#f59e0b"
           }
@@ -234,7 +234,7 @@ export const omniGarden = {
           "release_date": "2025-05-06",
           "self_hostable": true,
           "coming_soon": false,
-          "docs_url": "https://docs.omni.dev/core/backfeed",
+          "docs_url": "https://docs.omni.dev/products/backfeed",
           "theme": {
             "primary_color": "#f43f5e"
           }
@@ -261,7 +261,7 @@ export const omniGarden = {
           "release_date": "",
           "self_hostable": false,
           "coming_soon": true,
-          "docs_url": "https://docs.omni.dev/grid/fractal"
+          "docs_url": "https://docs.omni.dev/products/fractal"
         },
         {
           "name": "Heartbeat",
@@ -273,7 +273,7 @@ export const omniGarden = {
           "release_date": "",
           "self_hostable": false,
           "coming_soon": true,
-          "docs_url": "https://docs.omni.dev/grid/heartbeat"
+          "docs_url": "https://docs.omni.dev/products/heartbeat"
         },
         {
           "name": "Herald",
@@ -297,7 +297,7 @@ export const omniGarden = {
           "release_date": "",
           "self_hostable": true,
           "coming_soon": true,
-          "docs_url": "https://docs.omni.dev/grid/synapse"
+          "docs_url": "https://docs.omni.dev/products/synapse"
         },
         {
           "name": "Vortex",
@@ -309,7 +309,7 @@ export const omniGarden = {
           "release_date": "",
           "self_hostable": true,
           "coming_soon": true,
-          "docs_url": "https://docs.omni.dev/grid/vortex"
+          "docs_url": "https://docs.omni.dev/products/vortex"
         },
         {
           "name": "Beacon",
@@ -321,7 +321,7 @@ export const omniGarden = {
           "release_date": "2026-02-09",
           "self_hostable": true,
           "coming_soon": false,
-          "docs_url": "https://docs.omni.dev/grid/beacon"
+          "docs_url": "https://docs.omni.dev/products/beacon"
         }
       ]
     },
@@ -345,7 +345,7 @@ export const omniGarden = {
           "release_date": "",
           "self_hostable": false,
           "coming_soon": true,
-          "docs_url": "https://docs.omni.dev/orin"
+          "docs_url": "https://docs.omni.dev/products/orin"
         }
       ]
     }

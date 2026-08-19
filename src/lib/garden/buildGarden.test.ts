@@ -82,7 +82,7 @@ describe("buildGarden", () => {
 
 	test("resolves relative docs URLs to absolute https links", () => {
 		const runa = sprouts.find((s) => s.name === "Runa");
-		expect(runa?.docs_url).toBe("https://docs.omni.dev/core/runa");
+		expect(runa?.docs_url).toBe("https://docs.omni.dev/products/runa");
 	});
 
 	test("keeps only edges between visible products", () => {
