@@ -284,7 +284,7 @@ export const omniGarden = {
         {
           "name": "Halo",
           "homepage_url": "https://halo.omni.dev",
-          "description": "A zero-trust ecommerce platform that addresses the challenges of complex and rigid ecommerce infrastructure, supporting both fiat and cryptocurrency-native payments. Shopify for the modern world.",
+          "description": "A commerce and CMS platform built for creators. Sell physical and digital products, model custom content types, and publish pages and posts, all under your own brand.",
           "logo": "😇",
           "tagline": "Modular ecommerce",
           "license": "Proprietary",
