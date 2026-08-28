@@ -27,16 +27,19 @@ export const omniGarden = {
       ],
       "sprouts": [
         {
-          "name": "Charm",
-          "homepage_url": "https://charm.omni.dev",
-          "description": "A free, open-source, self-hostable all-in-one Discord bot for community management. Charm brings themed welcome cards, moderation, automod and anti-raid, reaction roles, onboarding, leveling, tickets, and full audit logging together behind a genuinely polished configuration dashboard, with per-server theming and branding included (never paywalled) and an optional AI layer powered by Orin.",
-          "logo": "📿",
-          "tagline": "Your community's lucky charm",
-          "license": "Apache-2.0",
-          "release_date": "",
-          "self_hostable": true,
-          "coming_soon": true,
-          "docs_url": "https://docs.omni.dev/kindred/charm"
+          "name": "Thrivestream",
+          "homepage_url": "https://thrivestream.live",
+          "description": "A live streaming platform for creators: broadcasters go live from a web studio, viewers watch in real time over WebRTC, and stream activity mirrors to and from Threads.",
+          "logo": "📡",
+          "tagline": "Live streaming for creators, with native Threads integration",
+          "license": "Proprietary",
+          "release_date": "2026-06-05",
+          "self_hostable": false,
+          "coming_soon": false,
+          "docs_url": "https://docs.omni.dev/products/thrivestream",
+          "theme": {
+            "primary_color": "#fb3f1c"
+          }
         }
       ]
     },
@@ -62,7 +65,7 @@ export const omniGarden = {
           "coming_soon": false,
           "docs_url": "https://docs.omni.dev/products/garden",
           "theme": {
-            "primary_color": "#22c55e"
+            "primary_color": "#3d8f5b"
           }
         },
         {
@@ -75,7 +78,10 @@ export const omniGarden = {
           "release_date": "2026-02-06",
           "self_hostable": false,
           "coming_soon": false,
-          "docs_url": "https://docs.omni.dev/products/life-json"
+          "docs_url": "https://docs.omni.dev/products/life-json",
+          "theme": {
+            "primary_color": "#446845"
+          }
         },
         {
           "name": "persona.json",
@@ -87,7 +93,10 @@ export const omniGarden = {
           "release_date": "2026-02-06",
           "self_hostable": false,
           "coming_soon": false,
-          "docs_url": "https://docs.omni.dev/products/persona-json"
+          "docs_url": "https://docs.omni.dev/products/persona-json",
+          "theme": {
+            "primary_color": "#4830c9"
+          }
         }
       ]
     },
@@ -111,7 +120,10 @@ export const omniGarden = {
           "release_date": "2025-10-31",
           "self_hostable": false,
           "coming_soon": false,
-          "docs_url": "https://docs.omni.dev/products/rdk"
+          "docs_url": "https://docs.omni.dev/products/rdk",
+          "theme": {
+            "primary_color": "#00bdbf"
+          }
         }
       ]
     },
@@ -135,7 +147,10 @@ export const omniGarden = {
           "release_date": "2026-01-01",
           "self_hostable": false,
           "coming_soon": false,
-          "docs_url": "https://docs.omni.dev/products/eden"
+          "docs_url": "https://docs.omni.dev/products/eden",
+          "theme": {
+            "primary_color": "#008236"
+          }
         },
         {
           "name": "Omni Terminal",
@@ -147,7 +162,10 @@ export const omniGarden = {
           "release_date": "2026-02-27",
           "self_hostable": true,
           "coming_soon": false,
-          "docs_url": "https://docs.omni.dev/products/omni-terminal"
+          "docs_url": "https://docs.omni.dev/products/omni-terminal",
+          "theme": {
+            "primary_color": "#1447e6"
+          }
         },
         {
           "name": "Omni CLI",
@@ -159,7 +177,10 @@ export const omniGarden = {
           "release_date": "2026-01-27",
           "self_hostable": false,
           "coming_soon": false,
-          "docs_url": "https://docs.omni.dev/products/omni-cli"
+          "docs_url": "https://docs.omni.dev/products/omni-cli",
+          "theme": {
+            "primary_color": "#155dfc"
+          }
         }
       ]
     },
@@ -174,6 +195,21 @@ export const omniGarden = {
       ],
       "sprouts": [
         {
+          "name": "Sigil",
+          "homepage_url": "https://sigil.omni.dev",
+          "description": "A unified collection of design tokens, components, and utilities for building accessible, consistent, and beautiful user interfaces across the Omni product ecosystem.",
+          "logo": "🖌️",
+          "tagline": "Omni's unified design system",
+          "license": "Apache-2.0",
+          "release_date": "2023-10-30",
+          "self_hostable": false,
+          "coming_soon": false,
+          "docs_url": "https://docs.omni.dev/realms/sigil",
+          "theme": {
+            "primary_color": "#09b8b5"
+          }
+        },
+        {
           "name": "Thornberry",
           "homepage_url": "https://thornberry.omni.dev",
           "description": "An extension of the Sigil design system that integrates Tailwind CSS and shadcn components, providing a comprehensive UI toolkit for rapid application development.",
@@ -183,7 +219,10 @@ export const omniGarden = {
           "release_date": "2026-07-06",
           "self_hostable": false,
           "coming_soon": false,
-          "docs_url": "https://docs.omni.dev/products/thornberry"
+          "docs_url": "https://docs.omni.dev/products/thornberry",
+          "theme": {
+            "primary_color": "#007d7c"
+          }
         },
         {
           "name": "Zenpetal",
@@ -195,7 +234,10 @@ export const omniGarden = {
           "release_date": "2023-10-30",
           "self_hostable": false,
           "coming_soon": false,
-          "docs_url": "https://docs.omni.dev/products/zenpetal"
+          "docs_url": "https://docs.omni.dev/products/zenpetal",
+          "theme": {
+            "primary_color": "#02cac5"
+          }
         }
       ]
     },
@@ -221,8 +263,35 @@ export const omniGarden = {
           "coming_soon": false,
           "docs_url": "https://docs.omni.dev/products/runa",
           "theme": {
-            "primary_color": "#f59e0b"
+            "primary_color": "#f89d00"
           }
+        },
+        {
+          "name": "Crystal",
+          "homepage_url": "https://crystal.omni.dev",
+          "description": "A funding platform for creators, with memberships, tips, donations, and funding goals. One flat platform fee, and no fee for nonprofits and open-source projects, so more of every contribution reaches the creator.",
+          "logo": "💎",
+          "tagline": "Crystal-clear creator funding",
+          "license": "Proprietary",
+          "release_date": "",
+          "self_hostable": false,
+          "coming_soon": true,
+          "docs_url": "https://docs.omni.dev/products/crystal",
+          "theme": {
+            "primary_color": "#7370fa"
+          }
+        },
+        {
+          "name": "Halo",
+          "homepage_url": "https://halo.omni.dev",
+          "description": "A zero-trust ecommerce platform that addresses the challenges of complex and rigid ecommerce infrastructure, supporting both fiat and cryptocurrency-native payments. Shopify for the modern world.",
+          "logo": "😇",
+          "tagline": "Modular ecommerce",
+          "license": "Proprietary",
+          "release_date": "",
+          "self_hostable": false,
+          "coming_soon": true,
+          "docs_url": "https://docs.omni.dev/products/halo"
         },
         {
           "name": "Backfeed",
@@ -236,7 +305,7 @@ export const omniGarden = {
           "coming_soon": false,
           "docs_url": "https://docs.omni.dev/products/backfeed",
           "theme": {
-            "primary_color": "#f43f5e"
+            "primary_color": "#ff6347"
           }
         }
       ]
@@ -254,38 +323,17 @@ export const omniGarden = {
         {
           "name": "Fractal",
           "homepage_url": "https://fractal.omni.dev",
-          "description": "A graphical cloud platform designed to simplify complex cloud infrastructure management and configuration. Think of it as a combination of Railway and Tilt, potentially powered by Kubernetes as a substrate.",
+          "description": "The easiest way to take an app, website, or database to production. Connect a repository and Fractal builds, ships, and scales it automatically, with autoscaling and scale-to-zero so you only pay for what you use.",
           "logo": "🔷",
           "tagline": "The geometry of deployment",
           "license": "Proprietary",
-          "release_date": "",
+          "release_date": "2026-08-17",
           "self_hostable": false,
-          "coming_soon": true,
-          "docs_url": "https://docs.omni.dev/products/fractal"
-        },
-        {
-          "name": "Heartbeat",
-          "homepage_url": "https://heartbeat.omni.dev",
-          "description": "A robust heartbeat monitor with alerts.",
-          "logo": "💓",
-          "tagline": "Vital signs for vital services",
-          "license": "Apache-2.0",
-          "release_date": "",
-          "self_hostable": false,
-          "coming_soon": true,
-          "docs_url": "https://docs.omni.dev/products/heartbeat"
-        },
-        {
-          "name": "Herald",
-          "homepage_url": "https://herald.omni.dev",
-          "description": "A transactional and marketing email platform. Sends receipts, notifications, auth emails, and broadcasts from dedicated IPs with managed deliverability, suppression, and per-tenant reputation isolation, natively wired into the Omni event and workflow stack. Available as a managed service or self-hosted.",
-          "logo": "🕊️",
-          "tagline": "Always in flight",
-          "license": "Apache-2.0",
-          "release_date": "2026-08-12",
-          "self_hostable": true,
           "coming_soon": false,
-          "docs_url": "https://docs.omni.dev/grid/herald"
+          "docs_url": "https://docs.omni.dev/products/fractal",
+          "theme": {
+            "primary_color": "#2b7fff"
+          }
         },
         {
           "name": "Synapse",
@@ -297,7 +345,10 @@ export const omniGarden = {
           "release_date": "",
           "self_hostable": true,
           "coming_soon": true,
-          "docs_url": "https://docs.omni.dev/products/synapse"
+          "docs_url": "https://docs.omni.dev/products/synapse",
+          "theme": {
+            "primary_color": "#2d6aff"
+          }
         },
         {
           "name": "Vortex",
@@ -309,7 +360,10 @@ export const omniGarden = {
           "release_date": "",
           "self_hostable": true,
           "coming_soon": true,
-          "docs_url": "https://docs.omni.dev/products/vortex"
+          "docs_url": "https://docs.omni.dev/products/vortex",
+          "theme": {
+            "primary_color": "#795bbf"
+          }
         },
         {
           "name": "Beacon",
@@ -321,7 +375,10 @@ export const omniGarden = {
           "release_date": "2026-02-09",
           "self_hostable": true,
           "coming_soon": false,
-          "docs_url": "https://docs.omni.dev/products/beacon"
+          "docs_url": "https://docs.omni.dev/products/beacon",
+          "theme": {
+            "primary_color": "#f97316"
+          }
         }
       ]
     },
@@ -338,14 +395,17 @@ export const omniGarden = {
         {
           "name": "Orin",
           "homepage_url": "https://orin.omni.dev",
-          "description": "Orin is Omni's friendly otter mascot who appears as a character in Nemoral and serves as an AI assistant with voice capabilities, specializing in knowledge about the Omni ecosystem. Powered by Beacon.",
+          "description": "Orin is Omni's friendly otter mascot and AI assistant with voice capabilities, specializing in knowledge about the Omni ecosystem. Powered by Beacon.",
           "logo": "🦦",
           "tagline": "Otterly intelligent",
           "license": "Apache-2.0",
           "release_date": "",
           "self_hostable": false,
           "coming_soon": true,
-          "docs_url": "https://docs.omni.dev/products/orin"
+          "docs_url": "https://docs.omni.dev/products/orin",
+          "theme": {
+            "primary_color": "#f4c86a"
+          }
         }
       ]
     }
@@ -362,21 +422,30 @@ export const omniGarden = {
       "status": "planned"
     },
     {
-      "source": "Heartbeat",
-      "target": "Vortex",
-      "relations": [
-        "monitors"
-      ],
-      "description": "Heartbeat monitors health of all Omni services. Public status pages, alerting via webhooks, and SLA tracking.",
-      "status": "planned"
-    },
-    {
       "source": "Orin",
       "target": "persona.json",
       "relations": [
         "reads-from"
       ],
       "description": "Orin is defined as an instance of the persona.json specification. The orin.json file follows the persona.json v1 schema.",
+      "status": "implemented"
+    },
+    {
+      "source": "Runa",
+      "target": "Sigil",
+      "relations": [
+        "styled-by"
+      ],
+      "description": "All Omni consumer products use Sigil design system for consistent UI. Implemented via Zenpetal (Panda CSS) or Thornberry (Tailwind).",
+      "status": "implemented"
+    },
+    {
+      "source": "Halo",
+      "target": "Sigil",
+      "relations": [
+        "styled-by"
+      ],
+      "description": "All Omni consumer products use Sigil design system for consistent UI. Implemented via Zenpetal (Panda CSS) or Thornberry (Tailwind).",
       "status": "implemented"
     },
     {
@@ -389,13 +458,13 @@ export const omniGarden = {
       "status": "implemented"
     },
     {
-      "source": "Charm",
-      "target": "Vortex",
+      "source": "Backfeed",
+      "target": "Sigil",
       "relations": [
-        "produces"
+        "styled-by"
       ],
-      "description": "Charm emits CloudEvents (source omni.charm, types charm.<entity>.<action>) through Vortex for moderation, membership, and configuration changes, consumed by Beacon for AI features and by other Omni services.",
-      "status": "planned"
+      "description": "All Omni consumer products use Sigil design system for consistent UI. Implemented via Zenpetal (Panda CSS) or Thornberry (Tailwind).",
+      "status": "implemented"
     },
     {
       "source": "Omni CLI",
@@ -407,6 +476,24 @@ export const omniGarden = {
       "status": "planned"
     },
     {
+      "source": "Crystal",
+      "target": "Sigil",
+      "relations": [
+        "styled-by"
+      ],
+      "description": "All Omni consumer products use Sigil design system for consistent UI. Implemented via Zenpetal (Panda CSS) or Thornberry (Tailwind).",
+      "status": "implemented"
+    },
+    {
+      "source": "Halo",
+      "target": "Crystal",
+      "relations": [
+        "integrates"
+      ],
+      "description": "Halo can use Crystal for creator storefronts. Enables creator merchandise with direct payouts via Stripe Connect.",
+      "status": "planned"
+    },
+    {
       "source": "Runa",
       "target": "Backfeed",
       "relations": [
@@ -414,15 +501,6 @@ export const omniGarden = {
         "integrates"
       ],
       "description": "Runa integrates Backfeed for user feedback on projects. Feedback items can be converted to Runa tasks, and task completion can trigger feedback status updates.",
-      "status": "planned"
-    },
-    {
-      "source": "Heartbeat",
-      "target": "Runa",
-      "relations": [
-        "monitors"
-      ],
-      "description": "Heartbeat monitors health of all Omni services. Public status pages, alerting via webhooks, and SLA tracking.",
       "status": "planned"
     },
     {
@@ -454,15 +532,6 @@ export const omniGarden = {
       "status": "implemented"
     },
     {
-      "source": "Charm",
-      "target": "Beacon",
-      "relations": [
-        "delegates-to"
-      ],
-      "description": "Charm delegates its optional AI layer to Beacon: natural-language automod authoring, AI moderation triage, and the in-server Orin persona. Charm owns the moderation and utility engine; Beacon owns the conversational persona. The two coordinate over CloudEvents via Vortex rather than sharing a Discord connection.",
-      "status": "planned"
-    },
-    {
       "source": "Beacon",
       "target": "persona.json",
       "relations": [
@@ -479,15 +548,6 @@ export const omniGarden = {
       ],
       "description": "Orin is the flagship persona for Beacon, providing a friendly otter assistant with expertise in the Omni ecosystem. Beacon loads Orin's personality, wake words, and voice configuration.",
       "status": "implemented"
-    },
-    {
-      "source": "Heartbeat",
-      "target": "Backfeed",
-      "relations": [
-        "monitors"
-      ],
-      "description": "Heartbeat monitors health of all Omni services. Public status pages, alerting via webhooks, and SLA tracking.",
-      "status": "planned"
     }
   ]
 } as GardenSchema;
