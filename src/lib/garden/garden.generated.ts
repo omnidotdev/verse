@@ -36,7 +36,7 @@ export const omniGarden = {
           "release_date": "2026-06-05",
           "self_hostable": false,
           "coming_soon": false,
-          "docs_url": "https://docs.omni.dev/products/thrivestream",
+          "docs_url": "https://docs.thrivestream.live",
           "theme": {
             "primary_color": "#fb3f1c"
           }
@@ -168,6 +168,21 @@ export const omniGarden = {
           }
         },
         {
+          "name": "Arbor",
+          "homepage_url": "https://arbor.omni.dev",
+          "description": "An open-source code forge with a focus on social collaboration: host Git repositories, review and discuss changes together, and see how everything connects across repos in a live graph.",
+          "logo": "🌲",
+          "tagline": "Where code grows together",
+          "license": "Apache-2.0",
+          "release_date": "",
+          "self_hostable": true,
+          "coming_soon": true,
+          "docs_url": "https://docs.omni.dev/products/arbor",
+          "theme": {
+            "primary_color": "#2f9f3d"
+          }
+        },
+        {
           "name": "Omni CLI",
           "homepage_url": "https://cli.omni.dev",
           "description": "Command-line interface for interacting with all Omni tools and services.",
@@ -180,6 +195,45 @@ export const omniGarden = {
           "docs_url": "https://docs.omni.dev/products/omni-cli",
           "theme": {
             "primary_color": "#155dfc"
+          }
+        },
+        {
+          "name": "Nectar",
+          "homepage_url": "https://nectar.omni.dev",
+          "description": "A free and open-source database visualization and management tool. Browse, query, and edit your data with a modern interface—like Drizzle Studio, but FOSS. Supports PostgreSQL, MySQL, SQLite, and more.",
+          "logo": "🍯",
+          "tagline": "Where data flows like honey",
+          "license": "Apache-2.0",
+          "release_date": "",
+          "self_hostable": false,
+          "coming_soon": true,
+          "docs_url": "https://docs.omni.dev/products/nectar"
+        }
+      ]
+    },
+    {
+      "name": "WORLDS",
+      "description": "Games and immersive experiences - Immersive experiences, games, and generative worlds. Interactive entertainment and AI-driven environments that blur the line between reality and imagination.",
+      "icon": "🌌",
+      "supergardens": [
+        {
+          "name": "Omniverse"
+        }
+      ],
+      "sprouts": [
+        {
+          "name": "Aspen",
+          "homepage_url": "https://aspen.omni.dev",
+          "description": "A web-native, open-source 3D game engine: build a game in your browser and ship it as an instant, click-to-play link.",
+          "logo": "🎮",
+          "tagline": "A game engine in a browser tab",
+          "license": "Apache-2.0",
+          "release_date": "",
+          "self_hostable": true,
+          "coming_soon": true,
+          "docs_url": "https://docs.omni.dev/products/aspen",
+          "theme": {
+            "primary_color": "#3dd68c"
           }
         }
       ]
@@ -336,15 +390,27 @@ export const omniGarden = {
           }
         },
         {
+          "name": "Herald",
+          "homepage_url": "https://herald.omni.dev",
+          "description": "A transactional and marketing email platform. Sends receipts, notifications, auth emails, and broadcasts from managed, warmed shared IP pools with automatic deliverability, suppression, and reputation management, natively wired into the Omni event and workflow stack. Available as a fully managed service.",
+          "logo": "🕊️",
+          "tagline": "Always in flight",
+          "license": "Proprietary",
+          "release_date": "2026-09-18",
+          "self_hostable": false,
+          "coming_soon": false,
+          "docs_url": "https://docs.omni.dev/products/herald"
+        },
+        {
           "name": "Synapse",
           "homepage_url": "https://synapse.omni.dev",
           "description": "An AI router that aggregates MCP servers and LLM providers behind a single endpoint, providing intelligent request routing, tool discovery, and enterprise-grade governance for AI infrastructure.",
           "logo": "🧠",
           "tagline": "Orchestrated intelligence",
           "license": "Apache-2.0",
-          "release_date": "",
+          "release_date": "2026-09-20",
           "self_hostable": true,
-          "coming_soon": true,
+          "coming_soon": false,
           "docs_url": "https://docs.omni.dev/products/synapse",
           "theme": {
             "primary_color": "#2d6aff"
@@ -357,9 +423,9 @@ export const omniGarden = {
           "logo": "🌪️",
           "tagline": "Spin the web of automation",
           "license": "Apache-2.0",
-          "release_date": "",
+          "release_date": "2026-09-20",
           "self_hostable": true,
-          "coming_soon": true,
+          "coming_soon": false,
           "docs_url": "https://docs.omni.dev/products/vortex",
           "theme": {
             "primary_color": "#795bbf"
@@ -440,6 +506,15 @@ export const omniGarden = {
       "status": "implemented"
     },
     {
+      "source": "Nectar",
+      "target": "Backfeed",
+      "relations": [
+        "integrates"
+      ],
+      "description": "Nectar provides database visualization and management for all database-backed Omni products. Browse, query, and edit data across services with a unified interface.",
+      "status": "planned"
+    },
+    {
       "source": "Halo",
       "target": "Sigil",
       "relations": [
@@ -447,6 +522,15 @@ export const omniGarden = {
       ],
       "description": "All Omni consumer products use Sigil design system for consistent UI. Implemented via Zenpetal (Panda CSS) or Thornberry (Tailwind).",
       "status": "implemented"
+    },
+    {
+      "source": "Nectar",
+      "target": "Runa",
+      "relations": [
+        "integrates"
+      ],
+      "description": "Nectar provides database visualization and management for all database-backed Omni products. Browse, query, and edit data across services with a unified interface.",
+      "status": "planned"
     },
     {
       "source": "persona.json",
@@ -548,6 +632,15 @@ export const omniGarden = {
       ],
       "description": "Orin is the flagship persona for Beacon, providing a friendly otter assistant with expertise in the Omni ecosystem. Beacon loads Orin's personality, wake words, and voice configuration.",
       "status": "implemented"
+    },
+    {
+      "source": "Crystal",
+      "target": "Arbor",
+      "relations": [
+        "integrates"
+      ],
+      "description": "Crystal integrates with Arbor for repository-native funding. Issue and PR bounties are created in Crystal and linked to Arbor repository items.",
+      "status": "planned"
     }
   ]
 } as GardenSchema;

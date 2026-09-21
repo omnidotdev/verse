@@ -24,9 +24,12 @@ describe("omniGarden", () => {
 			expect(Boolean(sprout.release_date) || sprout.coming_soon).toBeTruthy();
 		}
 
+		// See Less has no releaseDate in the catalog, so the launched-only filter
+		// must keep dropping it: guards against unlaunched products leaking in.
+		// (Sigil was also dropped here until the catalog gave it its real launch
+		// date, 2023-10-30, so it now legitimately appears as a launched product.)
 		const names = sprouts.map((sprout) => sprout.name);
 		expect(names).not.toContain("See Less");
-		expect(names).not.toContain("Sigil");
 	});
 
 	test("carries the enriched catalog metadata", () => {

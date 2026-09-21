@@ -20,7 +20,7 @@ const sample: PublicCatalog = {
 			realm: "core",
 			releaseDate: "2025-12-21",
 			status: "active",
-			docsUrl: "/core/runa",
+			docsUrl: "/products/runa",
 			deploymentMethods: [],
 		},
 		{
