@@ -18,7 +18,7 @@ const LAYOUTS = [
 
 type Layout = (typeof LAYOUTS)[number]["view"];
 
-const DEFAULT_LAYOUT: Layout = "tree";
+const DEFAULT_LAYOUT: Layout = "beehive";
 
 // Coerce defensively: an unknown `?view=` value yields undefined for the caller
 // to fall back on.
@@ -35,7 +35,7 @@ const HomeComponent = () => {
 		LAYOUTS.find((entry) => entry.view === layout) ?? LAYOUTS[0];
 
 	// The active layout lives in the URL (`?view=3d`), so a view is directly
-	// linkable and shareable. The default (tree) is left off for a clean `/`.
+	// linkable and shareable. The default (beehive) is left off for a clean `/`.
 	const setLayout = (key: Layout) =>
 		navigate({ search: key === DEFAULT_LAYOUT ? {} : { view: key } });
 
