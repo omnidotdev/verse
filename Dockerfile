@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 
-FROM oven/bun:1.4.0 AS base
+FROM oven/bun:1.4.2 AS base
 WORKDIR /app
 
 # Build
@@ -11,7 +11,7 @@ COPY . .
 RUN bun run build
 
 # Serve
-FROM oven/bun:1-alpine AS runner
+FROM oven/bun:1.4.2-alpine AS runner
 WORKDIR /app
 ENV NODE_ENV=production
 COPY --from=builder /app/dist ./dist
