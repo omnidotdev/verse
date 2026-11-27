@@ -15,7 +15,7 @@
     "prepare": "husky"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.4.6",
+    "@biomejs/biome": "2.6.9",
     "husky": "^9.1.7",
     "knip": "^5.86.0",
     "@tanstack/react-router-devtools": "^1.166.3",
@@ -32,7 +32,7 @@
   },
   "dependencies": {
     "@omnidotdev/garden": "github:omnidotdev/garden-canvas#f82d611aab9373dee6799b6bb14943d6ab4955ef",
-    "@omnidotdev/providers": "github:omnidotdev/providers#v0.2.0",
+    "@omnidotdev/providers": "github:omnidotdev/providers#v0.4.1",
     "@tailwindcss/vite": "^4.2.1",
     "@tanstack/react-query": "^5.101.2",
     "@tanstack/react-router": "^1.166.3",
